@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.env*.local
+.env
+.env.*
+!.env.example
+.vercel
+*.pem
+test-results
+playwright-report
