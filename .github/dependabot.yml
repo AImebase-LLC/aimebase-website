@@ -1,0 +1,14 @@
+# Dependency updates arrive as reviewable PRs, never auto-merged.
+# The cooldown waits out the window in which hijacked releases are usually caught and yanked.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 5
+    groups:
+      dependencies:
+        patterns: ["*"]

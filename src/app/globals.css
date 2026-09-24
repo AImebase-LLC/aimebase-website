@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* ABC Diatype @font-face is injected by the root layout only when the licensed files exist (see README). */
+
+/* Color tokens from docs/Mode 1.tokens.json (Foundation) */
+@theme {
+  --color-*: initial;
+
+  --color-dark-50: #e7e7e7;
+  --color-dark-100: #b3b3b3;
+  --color-dark-200: #8f8f8f;
+  --color-dark-300: #5c5c5c;
+  --color-dark-400: #3c3c3c;
+  --color-dark-500: #0b0b0b;
+  --color-dark-600: #0a0a0a;
+  --color-dark-700: #080808;
+  --color-dark-800: #060606;
+  --color-dark-900: #050505;
+
+  --color-accent-50: #ffece6;
+  --color-accent-100: #ffc5b2;
+  --color-accent-200: #ffa98c;
+  --color-accent-300: #ff8158;
+  --color-accent-400: #ff6937;
+  --color-accent-500: #ff4305;
+  --color-accent-600: #e83d05;
+  --color-accent-700: #b53004;
+  --color-accent-800: #8c2503;
+  --color-accent-900: #6b1c02;
+
+  --color-light-50: #ffffff;
+  --color-light-100: #fdfdfd;
+  --color-light-200: #fdfdfd;
+  --color-light-300: #fcfcfc;
+  --color-light-400: #fbfbfb;
+  --color-light-500: #fafafa;
+  --color-light-600: #e4e4e4;
+  --color-light-700: #b2b2b2;
+  --color-light-800: #8a8a8a;
+  --color-light-900: #696969;
+
+  --color-secondary-50: #fff9f7;
+  --color-secondary-100: #ffebe5;
+  --color-secondary-200: #ffe2d8;
+  --color-secondary-300: #ffd4c6;
+  --color-secondary-400: #ffccbb;
+  --color-secondary-500: #ffbfaa;
+  --color-secondary-600: #e8ae9b;
+  --color-secondary-700: #b58879;
+  --color-secondary-800: #8c695e;
+  --color-secondary-900: #6b5047;
+
+  /* Status badges (§7.4). Not in the token file; kept muted to sit with it. */
+  --color-status-live: #17663f;
+  --color-status-live-bg: #e6f4ec;
+  --color-status-pilot: #1c4f9c;
+  --color-status-pilot-bg: #e7eefa;
+  --color-status-dev: #7a4f00;
+  --color-status-dev-bg: #fbf1d9;
+
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Radius scale taken from rulebase.co: 4 / 8 / 12 / pill */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 100px;
+
+  --font-display: "ABC Diatype", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --rule: var(--color-light-600);
+  --frame: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-light-500);
+  color: var(--color-dark-500);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-100);
+  color: var(--color-dark-500);
+}
+
+/* Visible focus state (WCAG 2.1 AA) */
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  /* Firecrawl-style framed column: vertical rails run the full page height */
+  .frame {
+    position: relative;
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--frame);
+    border-inline: 1px solid var(--rule);
+  }
+
+  /* Full-bleed horizontal rule with + marks where it meets the rails */
+  .rule {
+    position: relative;
+    border-top: 1px solid var(--rule);
+  }
+  .rule > .frame::before,
+  .rule > .frame::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    width: 9px;
+    height: 9px;
+    background:
+      linear-gradient(var(--color-light-700), var(--color-light-700)) center / 1px 100% no-repeat,
+      linear-gradient(var(--color-light-700), var(--color-light-700)) center / 100% 1px no-repeat;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .rule-dark {
+    --rule: var(--color-dark-400);
+  }
+  .rule-dark > .frame::before,
+  .rule-dark > .frame::after {
+    background:
+      linear-gradient(var(--color-dark-300), var(--color-dark-300)) center / 1px 100% no-repeat,
+      linear-gradient(var(--color-dark-300), var(--color-dark-300)) center / 100% 1px no-repeat;
+  }
+  .rule > .frame::before { left: -5px; }
+  .rule > .frame::after { right: -5px; }
+
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(var(--color-secondary-600) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  /* 12px dot field (CTA background) */
+  .dot-field {
+    background-image: radial-gradient(rgb(255 255 255 / 0.13) 1px, transparent 1px);
+    background-size: 12px 12px;
+  }
+
+  /* 24px vertical line surface, faded from the top (CTA lead card) */
+  .line-surface {
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.09) 1px, transparent 1px);
+    background-size: 24px 100%;
+  }
+
+  .line-grid {
+    background-image:
+      linear-gradient(to right, var(--rule) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .prose-aim h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    font-size: 1.75rem;
+    line-height: 1.15;
+    margin-top: 3rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-aim h2:first-child { margin-top: 0; }
+  .prose-aim p {
+    color: var(--color-light-900);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgb(255 67 5 / 0.45); }
+  70% { box-shadow: 0 0 0 10px rgb(255 67 5 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(255 67 5 / 0); }
+}
+.animate-blink { animation: blink 1s steps(1) infinite; }
+.animate-rise { animation: rise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+/* Scroll reveal: only hides content once JS has confirmed it can reveal it again. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--d, 0) * 80ms);
+}
+html.js [data-reveal][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cursor spotlight on cards ([data-spotlight]) */
+[data-spotlight] {
+  position: relative;
+  isolation: isolate;
+}
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(255 67 5 / 0.07), transparent 45%);
+  z-index: -1;
+}
+[data-spotlight]:hover::before { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes showcase-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
