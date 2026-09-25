@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FinalCta } from "@/components/home/FinalCta";
+import { LogoMark, WordmarkSvg } from "@/components/Wordmark";
 import { FounderJourney } from "@/components/FounderJourney";
 import { FounderPhoto, hasFounderPhoto } from "@/components/FounderPhoto";
 import { Heading, Section, SectionLabel } from "@/components/Section";
@@ -135,8 +136,15 @@ export default function AboutPage() {
           <div className="border-b border-light-600 md:border-r md:border-b-0">
             <SectionLabel index={4} total={5}>The name</SectionLabel>
             <div className="border-t border-light-600 px-6 py-14 md:px-10">
-              <p className="display text-5xl">AImbase</p>
-              <p className="mt-2 font-mono text-sm text-light-900">/ {site.pronunciation} /</p>
+              <div className="flex items-center gap-6">
+                <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-dark-500">
+                  <LogoMark className="h-10 w-auto" />
+                </span>
+                <div>
+                  <WordmarkSvg className="h-8 w-auto md:h-10" />
+                  <p className="mt-3 font-mono text-sm text-light-900">/ {site.pronunciation} /</p>
+                </div>
+              </div>
               <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-dark-400">
                 The AI is capitalized because artificial intelligence is our foundation. <em>Base</em> means foundation,
                 ground, home. Everything we build stands on it.

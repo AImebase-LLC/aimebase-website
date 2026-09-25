@@ -68,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             description: site.oneLiner,
             founder: { "@type": "Person", name: site.founder },
             email: site.contactEmail,
+            logo: `${site.url}/brand/aimebase-logo.svg`,
             address: { "@type": "PostalAddress", addressLocality: "South Portland", addressRegion: "ME", addressCountry: "US" },
           }}
         />
