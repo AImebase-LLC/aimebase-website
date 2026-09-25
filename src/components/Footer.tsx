@@ -1,14 +1,19 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
-import { Wordmark } from "./Wordmark";
+import { LogoMark, Wordmark } from "./Wordmark";
 
 export function Footer() {
   return (
     <footer className="rule rule-dark bg-dark-500 text-dark-50">
-      <div className="frame px-6 pt-16 pb-10 md:px-10">
+      <div className="frame relative overflow-hidden px-6 pt-16 pb-10 md:px-10">
+        <LogoMark className="pointer-events-none absolute -right-10 -bottom-16 h-72 w-auto opacity-[0.06] md:h-96" />
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <Wordmark tone="light" />
+            <div className="flex items-center gap-4">
+              <LogoMark className="h-10 w-auto" />
+              <span aria-hidden className="h-8 w-px bg-dark-400" />
+              <Wordmark tone="light" className="h-[18px]" />
+            </div>
             <p className="display mt-6 text-3xl text-light-50 md:text-4xl">{site.tagline}</p>
             <p className="mt-4 max-w-[40ch] text-[15px] leading-relaxed text-dark-100">{site.oneLiner}</p>
           </div>
