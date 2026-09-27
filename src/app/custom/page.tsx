@@ -90,7 +90,7 @@ export default function CustomPage() {
         </ul>
       </Section>
 
-      <Section aria-labelledby="process-title" className="bg-light-500">
+      <Section id="process" aria-labelledby="process-title" className="scroll-mt-24 theme-dark pattern-grid">
         <SectionLabel index={2} total={TOTAL}>How a project works</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="process-title" className="text-4xl md:text-5xl">How a project works</Heading>
@@ -107,7 +107,7 @@ export default function CustomPage() {
       </Section>
 
       {customProjects.length > 0 && (
-        <Section aria-labelledby="proof-title" className="bg-light-50">
+        <Section aria-labelledby="proof-title" className="bg-light-500 pattern-dots">
           <SectionLabel index={3} total={TOTAL}>Proof</SectionLabel>
           <div className="border-t border-light-600 px-6 py-14 md:px-10">
             <Heading id="proof-title" className="text-4xl md:text-5xl">Built for communities</Heading>

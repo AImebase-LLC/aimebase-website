@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FinalCta } from "@/components/home/FinalCta";
 import { JsonLd } from "@/components/JsonLd";
+import { LiveLink } from "@/components/LiveLink";
 import { Fill } from "@/components/Placeholder";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectCover } from "@/components/ProjectCover";
@@ -83,6 +84,9 @@ export default async function ProjectPage({ params }: Props) {
                 </div>
                 <h1 id="page-title" className="display mt-6 max-w-[20ch] text-4xl md:text-[52px]">{project.title}</h1>
                 <p className="mt-6 max-w-[52ch] text-[17px] leading-relaxed text-light-900">{project.summary}</p>
+                {project.link && !isPlaceholder(project.link) && (
+                  <LiveLink href={project.link} variant="button" label={`Visit ${project.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}`} className="mt-8" />
+                )}
               </div>
               <dl className="flex flex-wrap gap-x-10 gap-y-4 text-sm">
                 <div>
@@ -106,7 +110,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* 3. Metrics bar */}
       {metrics.length > 0 && (
-        <Section aria-label="Results" className="bg-light-50">
+        <Section aria-label="Results" className="theme-accent pattern-diagonal">
           <dl className={`grid sm:grid-cols-2 ${["", "lg:grid-cols-1", "lg:grid-cols-2", "lg:grid-cols-3", "lg:grid-cols-4"][metrics.length]}`}>
             {metrics.map((m) => (
               <div key={m.label} data-reveal className="flex flex-col-reverse border-b border-light-600 px-6 py-8 last:border-b-0 sm:border-r lg:border-b-0 lg:last:border-r-0 md:px-10">
@@ -141,7 +145,7 @@ export default async function ProjectPage({ params }: Props) {
                   <dt className="mono-label text-light-900">Live link</dt>
                   <dd className="mt-1 text-[15px]">
                     {isPlaceholder(project.link) ? <Fill text={project.link} /> : (
-                      <a href={project.link} className="underline underline-offset-4 hover:text-accent-700" rel="noopener">
+                      <a href={project.link} target="_blank" className="underline underline-offset-4 hover:text-accent-700" rel="noopener noreferrer">
                         {project.link.replace(/^https?:\/\//, "")}
                       </a>
                     )}

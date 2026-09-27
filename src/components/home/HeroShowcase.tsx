@@ -12,6 +12,7 @@ export type ShowcaseItem = {
   status: string;
   category: string;
   outcome: string;
+  link: string;
 };
 
 const statusStyle: Record<string, { label: string; cls: string }> = {
@@ -103,13 +104,27 @@ export function HeroShowcase({ items }: { items: ShowcaseItem[] }) {
               <p className="display mt-2 text-xl leading-snug">{item.title.split(":").pop()?.trim()}</p>
               <p className="mt-1 text-[13.5px] font-medium text-accent-700">▸ {item.outcome}</p>
             </div>
-            <Link
-              href={`/projects/${item.slug}`}
-              data-event="project_card_click"
-              className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-dark-500 hover:text-accent-700"
-            >
-              Case study <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </Link>
+            <div className="flex shrink-0 items-center gap-4">
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-event="live_site_click"
+                  className="group inline-flex items-center gap-1 text-sm font-medium text-accent-700 hover:text-accent-800"
+                >
+                  Live site <span aria-hidden className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              )}
+              <Link
+                href={`/projects/${item.slug}`}
+                data-event="project_card_click"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-dark-500 hover:text-accent-700"
+              >
+                Case study <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -76,7 +76,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
           </dl>
         }
       />
-      <Section aria-label="Project list" className="bg-light-50">
+      <Section aria-label="Project list" className="bg-light-500 pattern-dots">
         <nav aria-label="Filter projects" className="flex flex-col gap-3 px-6 py-5 md:flex-row md:items-center md:justify-between md:px-10">
           <div className="flex flex-wrap gap-2">
             {filters.map((f) => (

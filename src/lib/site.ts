@@ -45,12 +45,87 @@ export const site = {
   year: 2026,
 } as const;
 
+/** Flat nav, used by the footer. */
 export const nav = [
   { href: "/aimdoc", label: "AImdoc" },
   { href: "/projects", label: "Projects" },
   { href: "/custom", label: "Custom builds" },
   { href: "/about", label: "About" },
 ] as const;
+
+export type NavItem = { href: string; title: string; desc: string; tag?: string };
+export type NavGroup = {
+  label: string;
+  href: string;
+  /** "projects" = filled from content/projects at render time */
+  items: NavItem[] | "projects";
+  feature: { eyebrow: string; title: string; href: string; cta: string; tone: "dark" | "peach" };
+};
+
+/** Header dropdowns. */
+export const navGroups: NavGroup[] = [
+  {
+    label: "Products",
+    href: "/aimdoc",
+    items: [
+      { href: "/aimdoc", title: "AImdoc", desc: "AI care documentation for DSP teams and agencies", tag: "Pilot" },
+      { href: "/aimdoc/security", title: "Security & privacy", desc: "How AImdoc treats your clients' records" },
+      { href: "/demo", title: "Book a demo", desc: "See a shift note drafted from five answers" },
+    ],
+    feature: {
+      eyebrow: "What's next",
+      title: "We're researching the next big problem to solve.",
+      href: "/projects",
+      cta: "See our work",
+      tone: "dark",
+    },
+  },
+  {
+    label: "Projects",
+    href: "/projects",
+    items: "projects",
+    feature: {
+      eyebrow: "Have a problem worth solving?",
+      title: "Every project here started with one problem.",
+      href: "/contact?type=project",
+      cta: "Start a project",
+      tone: "peach",
+    },
+  },
+  {
+    label: "Custom builds",
+    href: "/custom",
+    items: [
+      { href: "/custom", title: "Custom builds", desc: "Software for organizations big tech doesn't build for" },
+      { href: "/projects/rcm-election-2026", title: "Voting & election platforms", desc: "Bilingual ballots, ready by election day" },
+      { href: "/projects/rcm-community-website", title: "Websites & payments", desc: "Recurring contributions and donations, built in" },
+      { href: "/custom#process", title: "How a project works", desc: "Talk, scope, build, launch & support" },
+    ],
+    feature: {
+      eyebrow: "Shipped in days",
+      title: "A statewide community election platform, built in a few days.",
+      href: "/contact?type=project",
+      cta: "Start a project",
+      tone: "dark",
+    },
+  },
+  {
+    label: "Company",
+    href: "/about",
+    items: [
+      { href: "/about", title: "Our story", desc: "It started with a 16-hour shift" },
+      { href: "/about#values", title: "What we believe", desc: "Five values we build by" },
+      { href: "/contact", title: "Contact", desc: "hello@aimebase.com · South Portland, Maine" },
+    ],
+    feature: {
+      eyebrow: "Our mission",
+      title: "Find one big problem. Solve it well. Then find the next one.",
+      href: "/about",
+      cta: "Read our story",
+      tone: "peach",
+    },
+  },
+];
 
 export const cta = {
   demo: { href: "/demo", label: "Book an AImdoc demo", event: "demo_click" },

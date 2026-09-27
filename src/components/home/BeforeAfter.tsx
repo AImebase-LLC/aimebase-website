@@ -3,9 +3,9 @@ import { Heading, Section, SectionLabel } from "@/components/Section";
 const quick = ["Morning routine", "Meals", "Activities", "Community goal", "Anything else?"];
 
 /** Home §5 */
-export function BeforeAfter({ index, total }: { index: number; total: number }) {
+export function BeforeAfter({ index, total, surface }: { index: number; total: number; surface?: string }) {
   return (
-    <Section aria-labelledby="ba-title" className="bg-light-500">
+    <Section aria-labelledby="ba-title" className={surface ?? "bg-light-500"}>
       <SectionLabel index={index} total={total}>Before / after</SectionLabel>
       <div className="flex flex-col gap-4 border-t border-light-600 px-6 py-14 md:flex-row md:items-end md:justify-between md:px-10 md:py-16">
         <Heading id="ba-title" className="max-w-[18ch] text-4xl md:text-5xl">

@@ -94,7 +94,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 3. Mission & vision */}
-      <Section aria-label="Mission and vision" className="bg-light-500">
+      <Section aria-label="Mission and vision" className="theme-accent pattern-diagonal">
         <SectionLabel index={2} total={5}>Mission &amp; vision</SectionLabel>
         <div className="grid border-t border-light-600 md:grid-cols-2">
           {[
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 4. What we believe */}
-      <Section aria-labelledby="values-title" className="bg-light-50">
+      <Section id="values" aria-labelledby="values-title" className="scroll-mt-24 bg-light-500 pattern-dots">
         <SectionLabel index={3} total={5}>What we believe</SectionLabel>
         <div className="grid border-t border-light-600 md:grid-cols-[1fr_2fr]">
           <div className="px-6 py-14 md:border-r md:border-light-600 md:px-10">
@@ -131,7 +131,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 5. The name + 6. What's next */}
-      <Section aria-label="The name and what's next" className="bg-light-500">
+      <Section aria-label="The name and what's next" className="theme-peach pattern-grid">
         <div className="grid md:grid-cols-2">
           <div className="border-b border-light-600 md:border-r md:border-b-0">
             <SectionLabel index={4} total={5}>The name</SectionLabel>

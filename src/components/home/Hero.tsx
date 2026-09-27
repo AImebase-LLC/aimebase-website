@@ -13,6 +13,7 @@ export function Hero() {
     status: p.status,
     category: p.category,
     outcome: p.outcome_headline,
+    link: p.link,
   }));
   const inUse = getFeaturedProjects().filter((p) => p.status === "live" || p.status === "pilot").length;
 

@@ -2,9 +2,9 @@ import { Heading, Section, SectionLabel } from "@/components/Section";
 import { approach, site } from "@/lib/site";
 
 /** How we work: the mission as a loop. */
-export function Approach({ index, total }: { index: number; total: number }) {
+export function Approach({ index, total, surface }: { index: number; total: number; surface?: string }) {
   return (
-    <Section aria-labelledby="approach-title" className="bg-light-50">
+    <Section aria-labelledby="approach-title" className={surface ?? "bg-light-50"}>
       <SectionLabel index={index} total={total}>How we work</SectionLabel>
       <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <div className="px-6 py-14 md:px-10 md:py-16 lg:border-r lg:border-light-600">
@@ -27,7 +27,7 @@ export function Approach({ index, total }: { index: number; total: number }) {
             className="group flex flex-col gap-10 border-b border-light-600 px-6 py-10 sm:odd:border-r lg:border-r lg:border-b-0 lg:last:border-r-0 md:px-8"
           >
             <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-light-600 bg-light-500 font-mono text-xs text-accent-700 transition-colors duration-300 group-hover:border-accent-500 group-hover:bg-accent-500 group-hover:text-dark-500">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-light-600 bg-light-500 font-mono text-xs text-accent-700 transition-colors duration-300 group-hover:border-accent-500 group-hover:bg-accent-500 group-hover:text-[#0b0b0b]">
                 0{i + 1}
               </span>
               <span aria-hidden className="h-px flex-1 bg-light-600" />

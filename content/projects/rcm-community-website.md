@@ -24,7 +24,7 @@ testimonial:
   quote: ""
   name: ""
   role: ""
-link: ""
+link: "https://rcam-fe.vercel.app"
 cta: "project"
 ---
 

@@ -3,9 +3,9 @@ import { Heading, Section, SectionLabel } from "@/components/Section";
 const hours = Array.from({ length: 16 }, (_, i) => i);
 
 /** Home §3 */
-export function Problem({ index, total }: { index: number; total: number }) {
+export function Problem({ index, total, surface }: { index: number; total: number; surface?: string }) {
   return (
-    <Section aria-labelledby="problem-title" className="bg-light-500">
+    <Section aria-labelledby="problem-title" className={surface ?? "bg-light-500"}>
       <SectionLabel index={index} total={total}>The problem</SectionLabel>
       <div className="grid border-t border-light-600 lg:grid-cols-2">
         <div className="px-6 py-14 md:px-10 lg:border-r lg:border-light-600 lg:py-20">

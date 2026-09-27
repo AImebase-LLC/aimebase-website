@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Interactions } from "@/components/Interactions";
 import { JsonLd } from "@/components/JsonLd";
+import { getFeaturedProjects } from "@/lib/projects";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -72,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             address: { "@type": "PostalAddress", addressLocality: "South Portland", addressRegion: "ME", addressCountry: "US" },
           }}
         />
-        <Header />
+        <Header projects={getFeaturedProjects().map((p) => ({ slug: p.slug, title: p.title, status: p.status, summary: p.summary }))} />
         <main id="main">{children}</main>
         <Footer />
         <Analytics />

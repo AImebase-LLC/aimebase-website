@@ -30,7 +30,7 @@ testimonial:
   quote: ""
   name: ""
   role: ""
-link: ""
+link: "https://aimdoc.aimebase.com"
 cta: "demo"
 ---
 

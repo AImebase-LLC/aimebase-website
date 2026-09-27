@@ -20,9 +20,9 @@ function Card({ title, body, children, className = "", d = 0 }: { title: string;
 }
 
 /** Home §6: bento of buyer-facing benefits, followed by the mid-page demo CTA (§9). */
-export function Benefits({ index, total }: { index: number; total: number }) {
+export function Benefits({ index, total, surface }: { index: number; total: number; surface?: string }) {
   return (
-    <Section aria-labelledby="why-title" className="bg-light-500">
+    <Section aria-labelledby="why-title" className={surface ?? "bg-light-500"}>
       <SectionLabel index={index} total={total}>For agency leaders</SectionLabel>
       <div className="border-t border-light-600 px-6 py-14 md:px-10 md:py-16">
         <Heading id="why-title" className="text-4xl md:text-5xl">

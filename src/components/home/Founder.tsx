@@ -5,9 +5,9 @@ import { Section, SectionLabel } from "@/components/Section";
 import { founderMission, site } from "@/lib/site";
 
 /** Home §9 */
-export function Founder({ index, total }: { index: number; total: number }) {
+export function Founder({ index, total, surface }: { index: number; total: number; surface?: string }) {
   return (
-    <Section aria-label="A note from the founder" className="bg-light-500">
+    <Section aria-label="A note from the founder" className={surface ?? "bg-light-500"}>
       <SectionLabel index={index} total={total}>Founder note</SectionLabel>
       <div className="grid border-t border-light-600 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="border-b border-light-600 p-3 md:border-r md:border-b-0 md:p-4">

@@ -5,7 +5,7 @@ type Variant = "primary" | "secondary" | "dark" | "light" | "outlineDark";
 const styles: Record<Variant, string> = {
   // Dark text on accent-500 keeps 5.7:1 contrast (white on accent-500 is only 3.5:1).
   primary:
-    "bg-accent-500 text-dark-500 shadow-[inset_0_1px_0_rgb(255_255_255/0.25),0_1px_2px_rgb(107_28_2/0.3)] hover:bg-accent-400 hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.3),0_6px_18px_-6px_rgb(255_67_5/0.6)]",
+    "bg-accent-500 text-[#0b0b0b] shadow-[inset_0_1px_0_rgb(255_255_255/0.25),0_1px_2px_rgb(107_28_2/0.3)] hover:bg-accent-400 hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.3),0_6px_18px_-6px_rgb(255_67_5/0.6)]",
   secondary: "bg-light-50 text-dark-500 border border-light-600 hover:border-light-700",
   dark: "bg-dark-500 text-light-50 hover:bg-dark-400",
   light: "bg-light-50 text-dark-500 hover:bg-light-500",

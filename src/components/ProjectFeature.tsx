@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { categoryLabel, clientLabel, type Project } from "@/lib/projects";
 import { ProjectCover } from "./ProjectCover";
+import { LiveLink } from "./LiveLink";
 import { StatusBadge } from "./StatusBadge";
 
 /** Wide project card: cover on one side, the story and numbers on the other. */
@@ -46,6 +47,7 @@ export function ProjectFeature({ project, extra }: { project: Project; extra?: R
             Read the case study <span aria-hidden className="transition-transform group-hover/l:translate-x-0.5">→</span>
           </Link>
           {extra}
+          {project.link && <LiveLink href={project.link} label="Visit live site" />}
         </div>
       </div>
     </article>

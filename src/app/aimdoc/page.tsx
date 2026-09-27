@@ -8,6 +8,7 @@ import { Problem } from "@/components/home/Problem";
 import { steps } from "@/components/home/HowItWorks";
 import { ProductPreview } from "@/components/home/ProductPreview";
 import { JsonLd } from "@/components/JsonLd";
+import { LiveLink } from "@/components/LiveLink";
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { StepScreen } from "@/components/StepScreen";
 import { getProject } from "@/lib/projects";
@@ -70,6 +71,7 @@ export default function AimdocPage() {
               <div className="animate-rise mt-9 flex flex-col items-start gap-5 [animation-delay:200ms] sm:flex-row sm:items-center sm:gap-7">
                 <Button href={cta.demo.href} event={cta.demo.event} size="lg">{cta.demo.label}</Button>
                 <ArrowLink href="#how">See how it works</ArrowLink>
+                {project?.link && <LiveLink href={project.link} label="Open AImdoc" />}
               </div>
             </div>
             <div className="dot-grid flex items-center justify-center border-t border-light-600 bg-secondary-100 px-4 py-12 md:px-10 lg:border-t-0 lg:border-l">
@@ -79,7 +81,7 @@ export default function AimdocPage() {
         </div>
       </section>
 
-      <Problem index={1} total={TOTAL} />
+      <Problem index={1} total={TOTAL} surface="theme-dark pattern-dots" />
 
       {/* Who it's for */}
       <Section aria-labelledby="for-title" className="bg-light-50">
@@ -109,7 +111,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 2. How it works */}
-      <Section id="how" aria-labelledby="steps-title" className="bg-light-500">
+      <Section id="how" aria-labelledby="steps-title" className="theme-peach pattern-grid">
         <SectionLabel index={3} total={TOTAL}>How it works</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="steps-title" className="text-4xl md:text-5xl">How AImdoc works</Heading>
@@ -130,11 +132,11 @@ export default function AimdocPage() {
         ))}
       </Section>
 
-      <BeforeAfter index={4} total={TOTAL} />
-      <Benefits index={5} total={TOTAL} />
+      <BeforeAfter index={4} total={TOTAL} surface="bg-light-500 pattern-diagonal" />
+      <Benefits index={5} total={TOTAL} surface="bg-light-50 pattern-dots" />
 
       {/* Features */}
-      <Section aria-labelledby="features-title" className="bg-light-50">
+      <Section aria-labelledby="features-title" className="theme-dark pattern-grid">
         <SectionLabel index={6} total={TOTAL}>Features</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="features-title" className="text-4xl md:text-5xl">What&rsquo;s in AImdoc</Heading>
@@ -167,7 +169,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 4. Results from the pilot */}
-      <Section aria-labelledby="results-title" className="bg-light-500">
+      <Section aria-labelledby="results-title" className="theme-accent pattern-diagonal">
         <SectionLabel index={7} total={TOTAL}>Results from the pilot</SectionLabel>
         <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <div className="px-6 py-14 md:px-10 lg:border-r lg:border-light-600">
@@ -195,7 +197,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 5. Security summary */}
-      <Section aria-labelledby="security-title" className="rule-dark bg-dark-500">
+      <Section aria-labelledby="security-title" className="rule-dark bg-dark-500 pattern-dots [--pattern:rgb(255_255_255/0.07)]">
         <SectionLabel index={8} total={TOTAL} tone="dark">Security</SectionLabel>
         <div className="grid border-t border-dark-400 lg:grid-cols-2">
           <div className="px-6 py-14 md:px-10 lg:border-r lg:border-dark-400">
