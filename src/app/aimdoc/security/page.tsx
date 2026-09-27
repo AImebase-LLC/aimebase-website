@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PanelImage } from "@/components/PanelImage";
 import { ArrowLink, Button } from "@/components/Button";
 import { FinalCta } from "@/components/home/FinalCta";
 import { Heading, Section, SectionLabel } from "@/components/Section";
@@ -32,8 +33,9 @@ export default function SecurityPage() {
                 <ArrowLink href="#review">What we review with you</ArrowLink>
               </div>
             </div>
-            <div className="relative flex items-center justify-center overflow-hidden border-t border-light-600 bg-dark-500 px-6 py-14 lg:border-t-0 lg:border-l">
-              <div aria-hidden className="dot-field pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_60%_at_50%_50%,#000,transparent)]" />
+            <div className="relative isolate flex items-center justify-center overflow-hidden border-t border-light-600 bg-dark-500 px-6 py-14 lg:border-t-0 lg:border-l">
+              {/* Night city lights */}
+              <PanelImage src="/images/image3.jpg" position="50% 40%" priority />
               <div aria-hidden className="relative w-full max-w-sm space-y-2">
                 {[
                   { k: "Drafted by", v: "AImdoc", tone: "text-dark-100" },
@@ -45,7 +47,7 @@ export default function SecurityPage() {
                     key={r.k}
                     data-reveal
                     style={{ "--d": i } as React.CSSProperties}
-                    className="flex items-center justify-between rounded-md border border-white/10 bg-white/[0.03] px-4 py-3.5"
+                    className="flex items-center justify-between rounded-md border border-white/15 bg-black/55 px-4 py-3.5 backdrop-blur-md"
                   >
                     <span className="font-mono text-[11px] tracking-wide text-dark-200 uppercase">{r.k}</span>
                     <span className={`flex items-center gap-2 text-[15px] ${r.tone}`}>

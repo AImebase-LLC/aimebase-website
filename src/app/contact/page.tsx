@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PanelImage } from "@/components/PanelImage";
 import { CalendarEmbed } from "@/components/CalendarEmbed";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionLabel } from "@/components/Section";
@@ -18,8 +19,9 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
       <div className="frame">
         <SectionLabel>Contact</SectionLabel>
         <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
-          <div className="relative flex flex-col justify-between gap-12 overflow-hidden bg-dark-500 px-6 py-14 md:px-10 md:py-20">
-            <div aria-hidden className="dot-field pointer-events-none absolute inset-0 [mask-image:radial-gradient(80%_60%_at_0%_0%,#000,transparent)]" />
+          <div className="relative isolate flex flex-col justify-between gap-12 overflow-hidden bg-dark-500 px-6 py-14 md:px-10 md:py-20">
+            {/* Maine lighthouse at dusk: plain sky behind the heading */}
+            <PanelImage src="/images/image4.jpg" position="72% 40%" textTop priority />
             <div className="relative">
               <h1 id="page-title" className="animate-rise display text-5xl text-light-50 md:text-7xl">Let&rsquo;s talk.</h1>
               <p className="animate-rise mt-6 max-w-[36ch] text-[17px] leading-relaxed text-dark-100 [animation-delay:100ms]">

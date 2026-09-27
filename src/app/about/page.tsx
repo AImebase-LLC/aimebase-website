@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PanelImage } from "@/components/PanelImage";
 import { ArrowLink } from "@/components/Button";
 import { FinalCta } from "@/components/home/FinalCta";
 import { LogoMark, WordmarkSvg } from "@/components/Wordmark";
@@ -43,8 +44,9 @@ export default function AboutPage() {
         <div className="frame">
           <SectionLabel>About</SectionLabel>
           <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-            <div className="relative flex flex-col justify-between gap-16 overflow-hidden bg-dark-500 px-6 py-14 md:px-10 md:py-20 lg:min-h-[600px]">
-              <div aria-hidden className="dot-field pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_20%_20%,#000,transparent)]" />
+            <div className="relative isolate flex flex-col justify-between gap-16 overflow-hidden bg-dark-500 px-6 py-14 md:px-10 md:py-20 lg:min-h-[600px]">
+              {/* Yellow flower on dark: something growing */}
+              <PanelImage src="/images/image5.jpg" position="62% 30%" textTop priority />
               <p className="animate-rise relative mono-label text-accent-300">About AImbase</p>
               <div className="relative">
                 <h1 id="page-title" className="animate-rise display max-w-[12ch] text-5xl text-light-50 [animation-delay:100ms] md:text-7xl">
