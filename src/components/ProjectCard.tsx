@@ -4,6 +4,7 @@ import { canRender } from "@/lib/site";
 import { Fill } from "./Placeholder";
 import { ProjectCover } from "./ProjectCover";
 import { StatusBadge } from "./StatusBadge";
+import { ArrowChip } from "./Icon";
 
 /**
  * Project card, content spec §7.4. The title link stretches over the whole
@@ -34,7 +35,7 @@ export function ProjectCard({ project }: { project: Project }) {
               className="after:absolute after:inset-0 after:z-0 after:content-[''] focus-visible:outline-none"
             >
               {project.title}
-              <span aria-hidden className="ml-1.5 inline-block text-accent-600 opacity-0 transition-[opacity,transform] duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">→</span>
+              <ArrowChip size="sm" className="ml-2 align-[-3px]" />
             </Link>
           ) : (
             project.title
@@ -62,10 +63,10 @@ export function ProjectCard({ project }: { project: Project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-event="live_site_click"
-                className="group/live relative z-10 inline-flex items-center gap-1 rounded-xs text-[13px] font-medium text-accent-700 hover:text-accent-800"
+                className="relative z-10 inline-flex items-center gap-2 rounded-xs text-[13px] font-medium text-accent-700"
               >
-                Live site
-                <span aria-hidden className="transition-transform group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5">↗</span>
+                <span className="link-sweep">Live site</span>
+                <ArrowChip direction="up-right" size="sm" />
                 <span className="sr-only">(opens in a new tab)</span>
               </a>
             )}

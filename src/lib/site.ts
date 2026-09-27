@@ -208,11 +208,31 @@ export const founderQuote =
 
 /** Founder journey (§1, §5.7). Used where a photo would go until one is supplied. */
 export const founderJourney = [
-  { place: "Rwanda", note: "Born" },
-  { place: "Italy", note: "Studied" },
-  { place: "Maine", note: "Direct Support Professional, 16-hour shifts" },
-  { place: "Roux Institute", note: "Master's in AI (in progress), Northeastern University" },
-  { place: "South Portland", note: "Founded AImbase, 2026" },
+  {
+    place: "Rwanda",
+    note: "Born",
+    detail: "Born in Rwanda. Years later, the Rwandan community in Maine became AImbase's first client.",
+  },
+  {
+    place: "Italy",
+    note: "Studied",
+    detail: "Studied in Italy before making Maine home.",
+  },
+  {
+    place: "Maine",
+    note: "Direct Support Professional, 16-hour shifts",
+    detail: "Worked 16-hour shifts caring for people with disabilities, then spent the last, most exhausted hour on paperwork, and watched coworkers struggle with the same thing.",
+  },
+  {
+    place: "Roux Institute",
+    note: "Master's in AI (in progress), Northeastern University",
+    detail: "Pursuing a Master's in AI at Northeastern's Roux Institute while working those shifts.",
+  },
+  {
+    place: "South Portland",
+    note: "Founded AImbase, 2026",
+    detail: "Founded AImbase in 2026. First AImdoc, then a statewide community election platform built in a few days.",
+  },
 ];
 
 /** §6 FAQ bank. Answers say only what the spec establishes; specifics are covered live on the demo. */

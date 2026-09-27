@@ -5,6 +5,25 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cta, navGroups, site, type NavGroup, type NavItem } from "@/lib/site";
 import { Wordmark } from "./Wordmark";
+import {
+  Appointment02Icon,
+  ArrowDown01Icon,
+  BlocksIcon,
+  Cancel01Icon,
+  DashboardSquare01Icon,
+  Flowchart01Icon,
+  Globe02Icon,
+  HeartCheckIcon,
+  Mail01Icon,
+  MedicalFileIcon,
+  Menu01Icon,
+  Route01Icon,
+  SecurityValidationIcon,
+  VoteIcon,
+  WebDesign01Icon,
+} from "@hugeicons/core-free-icons";
+import type { IconSvgElement } from "@hugeicons/react";
+import { ArrowChip, Icon } from "./Icon";
 
 export type NavProject = { slug: string; title: string; status: string; summary: string };
 
@@ -28,25 +47,30 @@ function itemsFor(group: NavGroup, projects: NavProject[]): NavItem[] {
 }
 
 function Chevron({ open }: { open: boolean }) {
-  return (
-    <svg aria-hidden width="10" height="10" viewBox="0 0 10 10" className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
-      <path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
+  return <Icon icon={ArrowDown01Icon} size={14} strokeWidth={2} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />;
 }
 
-function ItemIcon({ title, tag }: { title: string; tag?: string }) {
-  const initials = title
-    .replace(/&/g, "")
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("");
+/** Hugeicon per destination. */
+const navIcons: Record<string, IconSvgElement> = {
+  "/aimdoc": MedicalFileIcon,
+  "/aimdoc/security": SecurityValidationIcon,
+  "/demo": Appointment02Icon,
+  "/projects/aimdoc": MedicalFileIcon,
+  "/projects/rcm-election-2026": VoteIcon,
+  "/projects/rcm-community-website": WebDesign01Icon,
+  "/projects": DashboardSquare01Icon,
+  "/custom": BlocksIcon,
+  "/custom#process": Flowchart01Icon,
+  "/about": Route01Icon,
+  "/about#values": HeartCheckIcon,
+  "/contact": Mail01Icon,
+};
+
+function ItemIcon({ href, tag }: { href: string; tag?: string }) {
   return (
-    <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-light-600 bg-light-50 font-display text-[12px] font-medium tracking-tight text-dark-400 transition-colors group-hover/item:border-accent-300 group-hover/item:bg-accent-500 group-hover/item:text-dark-500">
-      {initials}
-      {tag && statusDot[tag] && <span className={`absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full ring-2 ring-light-50 ${statusDot[tag]}`} />}
+    <span className="relative flex h-10 w-10 shrink-0 items-center justify-center border border-light-600 bg-light-50 text-dark-400 transition-colors group-hover/item:border-accent-500 group-hover/item:bg-accent-500 group-hover/item:text-[#0b0b0b]">
+      <Icon icon={navIcons[href] ?? Globe02Icon} size={19} />
+      {tag && statusDot[tag] && <span className={`absolute -top-1 -right-1 h-2 w-2 rounded-full ring-2 ring-light-50 ${statusDot[tag]}`} />}
     </span>
   );
 }
@@ -132,17 +156,20 @@ export function Header({ projects }: { projects: NavProject[] }) {
   const group = open !== null ? navGroups[open] : null;
 
   return (
-    <header className="pointer-events-none sticky top-0 z-50 px-3 pt-3 md:px-4">
-      <div ref={wrap} className="relative mx-auto max-w-[1200px]" onMouseLeave={hide}>
-        {/* The bar */}
-        <div
-          className={`glass pointer-events-auto flex h-14 items-center justify-between rounded-lg pr-2 pl-5 transition-shadow duration-300 md:pl-6 ${
-            scrolled ? "shadow-[inset_0_1px_0_rgb(255_255_255/0.95),0_0_0_1px_rgb(11_11_11/0.1),0_18px_40px_-16px_rgb(11_11_11/0.45)]" : ""
-          }`}
-        >
-          <Wordmark className="h-[22px] md:h-[26px]" />
+    <header className="sticky top-0 z-50">
+      {/* Full-bleed liquid glass, flush to the top edge. A sibling layer, so dropdowns can blur the page themselves. */}
+      <div
+        aria-hidden
+        className={`glass absolute inset-0 rounded-none border-b border-light-600 transition-shadow duration-300 ${
+          scrolled ? "shadow-[inset_0_1px_0_rgb(255_255_255/0.95),0_12px_32px_-18px_rgb(11_11_11/0.45)]" : "!shadow-[inset_0_1px_0_rgb(255_255_255/0.95)]"
+        }`}
+      />
+      <div ref={wrap} className="frame relative" onMouseLeave={hide}>
+        {/* The bar, on the page grid */}
+        <div className="flex h-16 items-center justify-between gap-3 pr-3 pl-4 sm:pl-5 md:pr-4 md:pl-10">
+          <Wordmark className="h-5 sm:h-[22px] md:h-[26px]" />
 
-          <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">
+          <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
             {navGroups.map((g, i) => {
               const active = groupActive(g);
               return (
@@ -164,13 +191,13 @@ export function Header({ projects }: { projects: NavProject[] }) {
                       requestAnimationFrame(() => document.querySelector<HTMLElement>("#nav-panel a")?.focus());
                     }
                   }}
-                  className={`relative inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-[14.5px] transition-colors ${
-                    open === i ? "bg-dark-500/[0.06] text-dark-500" : active ? "text-dark-500" : "text-dark-400 hover:bg-dark-500/[0.04] hover:text-dark-500"
+                  className={`relative inline-flex h-16 items-center gap-1.5 px-3.5 text-[14.5px] transition-colors ${
+                    open === i ? "bg-dark-500/[0.05] text-dark-500" : active ? "text-dark-500" : "text-dark-400 hover:bg-dark-500/[0.03] hover:text-dark-500"
                   }`}
                 >
                   {g.label}
                   <Chevron open={open === i} />
-                  {active && <span aria-hidden className="absolute inset-x-3 -bottom-[9px] h-0.5 rounded-full bg-accent-500" />}
+                  {active && <span aria-hidden className="absolute inset-x-3.5 bottom-0 h-0.5 bg-accent-500" />}
                 </button>
               );
             })}
@@ -180,20 +207,20 @@ export function Header({ projects }: { projects: NavProject[] }) {
             <Link
               href={headerCta.href}
               data-event={headerCta.event}
-              className="inline-flex h-10 items-center gap-1.5 rounded-md bg-dark-500 px-4 text-sm font-medium text-light-50 shadow-[inset_0_1px_0_rgb(255_255_255/0.15)] transition-[background-color,transform] hover:bg-dark-400 active:scale-[0.98]"
+              className="inline-flex h-10 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm bg-dark-500 px-3.5 text-sm font-medium text-light-50 max-[359px]:hidden sm:px-4 shadow-[inset_0_1px_0_rgb(255_255_255/0.15)] transition-[background-color,transform] hover:bg-dark-400 active:scale-[0.98]"
             >
               {headerCta.label}
             </Link>
             <button
               type="button"
-              className="relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-dark-500/10 bg-light-50/60 md:hidden"
+              className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-dark-500/10 bg-light-50/60 lg:hidden"
               aria-expanded={mobile}
               aria-controls="mobile-nav"
               aria-label={mobile ? "Close menu" : "Open menu"}
               onClick={() => setMobile((v) => !v)}
             >
-              <span aria-hidden className={`absolute h-px w-4 bg-dark-500 transition-transform duration-300 ${mobile ? "rotate-45" : "-translate-y-1"}`} />
-              <span aria-hidden className={`absolute h-px w-4 bg-dark-500 transition-transform duration-300 ${mobile ? "-rotate-45" : "translate-y-1"}`} />
+              <Icon icon={Menu01Icon} size={20} className={`absolute transition-[transform,opacity] duration-300 ${mobile ? "rotate-90 opacity-0" : "opacity-100"}`} />
+              <Icon icon={Cancel01Icon} size={20} className={`absolute transition-[transform,opacity] duration-300 ${mobile ? "opacity-100" : "-rotate-90 opacity-0"}`} />
             </button>
           </div>
         </div>
@@ -205,20 +232,20 @@ export function Header({ projects }: { projects: NavProject[] }) {
           aria-label={group ? `${group.label} menu` : undefined}
           onMouseEnter={() => closeTimer.current && clearTimeout(closeTimer.current)}
           style={{ left: panelLeft }}
-          className={`absolute top-full hidden w-[min(680px,calc(100%-24px))] pt-2 transition-[opacity,transform] duration-200 md:block ${
+          className={`absolute top-full hidden w-[min(680px,calc(100%-24px))] transition-[opacity,transform] duration-200 lg:block ${
             group ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
           }`}
         >
           {group && (
-            <div className="glass glass-panel grid grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-2 rounded-lg p-2">
+            <div className="glass glass-panel grid grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-2 rounded-none border border-t-0 border-light-600 p-2">
               <ul className="grid content-start gap-0.5 p-1">
                 {itemsFor(group, projects).map((it) => (
                   <li key={it.href + it.title}>
                     <Link
                       href={it.href}
-                      className="group/item flex items-start gap-3 rounded-md p-2.5 transition-colors hover:bg-dark-500/[0.045] focus-visible:bg-dark-500/[0.045]"
+                      className="group/item flex items-start gap-3 p-2.5 transition-colors hover:bg-dark-500/[0.045] focus-visible:bg-dark-500/[0.045]"
                     >
-                      <ItemIcon title={it.title} tag={it.tag} />
+                      <ItemIcon href={it.href} tag={it.tag} />
                       <span className="min-w-0">
                         <span className="flex items-center gap-2 text-[14px] font-medium text-dark-500">
                           {it.title}
@@ -234,7 +261,8 @@ export function Header({ projects }: { projects: NavProject[] }) {
               </ul>
               <Link
                 href={group.feature.href}
-                className={`group/f relative flex flex-col justify-between gap-8 overflow-hidden rounded-md p-5 ${
+                data-cursor="explore"
+                className={`group/f relative flex flex-col justify-between gap-8 overflow-hidden p-5 ${
                   group.feature.tone === "dark" ? "bg-dark-500 text-light-50" : "bg-secondary-100 text-dark-500"
                 }`}
               >
@@ -247,8 +275,8 @@ export function Header({ projects }: { projects: NavProject[] }) {
                 </span>
                 <span className="relative">
                   <span className="display block text-xl leading-snug">{group.feature.title}</span>
-                  <span className={`mt-4 inline-flex items-center gap-1.5 text-sm font-medium ${group.feature.tone === "dark" ? "text-accent-300" : "text-accent-700"}`}>
-                    {group.feature.cta} <span aria-hidden className="transition-transform group-hover/f:translate-x-0.5">→</span>
+                  <span className={`mt-4 inline-flex items-center gap-2.5 text-sm font-medium ${group.feature.tone === "dark" ? "text-accent-300" : "text-accent-700"}`}>
+                    <span className="link-sweep">{group.feature.cta}</span> <ArrowChip size="sm" tone={group.feature.tone === "dark" ? "dark" : "light"} />
                   </span>
                 </span>
               </Link>
@@ -259,7 +287,7 @@ export function Header({ projects }: { projects: NavProject[] }) {
         {/* Mobile menu */}
         <div
           id="mobile-nav"
-          className={`glass glass-panel pointer-events-auto absolute inset-x-0 top-full mt-2 max-h-[calc(100dvh-92px)] overflow-y-auto rounded-lg transition-[opacity,transform,visibility] duration-300 md:hidden ${
+          className={`glass glass-panel pointer-events-auto absolute inset-x-0 top-full max-h-[calc(100dvh-64px)] overflow-y-auto rounded-none border-b border-light-600 transition-[opacity,transform,visibility] duration-300 lg:hidden ${
             mobile ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
           }`}
         >
@@ -279,8 +307,8 @@ export function Header({ projects }: { projects: NavProject[] }) {
                   <ul className="overflow-hidden">
                     {itemsFor(g, projects).map((it) => (
                       <li key={it.href + it.title}>
-                        <Link href={it.href} className="group/item flex items-start gap-3 rounded-md px-3 py-2.5 active:bg-dark-500/[0.05]">
-                          <ItemIcon title={it.title} tag={it.tag} />
+                        <Link href={it.href} className="group/item flex items-start gap-3 px-3 py-2.5 active:bg-dark-500/[0.05]">
+                          <ItemIcon href={it.href} tag={it.tag} />
                           <span className="min-w-0">
                             <span className="block text-[15px] font-medium text-dark-500">{it.title}</span>
                             <span className="block text-[13px] leading-snug text-light-900">{it.desc}</span>
@@ -297,7 +325,7 @@ export function Header({ projects }: { projects: NavProject[] }) {
               <Link
                 href={productPage ? cta.demo.href : cta.project.href}
                 data-event={productPage ? cta.demo.event : cta.project.event}
-                className="flex h-12 w-full items-center justify-center rounded-md bg-accent-500 font-medium text-dark-500"
+                className="flex h-12 w-full items-center justify-center rounded-sm bg-accent-500 font-medium text-[#0b0b0b]"
               >
                 {productPage ? cta.demo.label : cta.project.label}
               </Link>

@@ -12,3 +12,5 @@ next-env.d.ts
 *.pem
 test-results
 playwright-report
+# Original 15 MB hero artwork; the site serves public/images/image1.jpg
+public/images/image1.png

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
+import { Icon } from "@/components/Icon";
 
 const qa = [
   { q: "How did the morning routine go?", a: "Dressed on his own. One reminder for meds." },
@@ -120,7 +122,7 @@ export function ProductPreview() {
                           done ? "bg-dark-500 text-light-50" : "border border-accent-500"
                         }`}
                       >
-                        {done ? "✓" : ""}
+                        {done ? <Icon icon={Tick02Icon} size={9} strokeWidth={3} /> : null}
                       </span>
                       <span className="truncate">{x.q}</span>
                     </div>
@@ -182,7 +184,7 @@ export function ProductPreview() {
                       : "bg-light-600 text-light-900"
                 }`}
               >
-                {phase === "signed" ? "✓ Signed" : "Review & sign"}
+                {phase === "signed" ? <span className="inline-flex items-center gap-1"><Icon icon={Tick02Icon} size={12} strokeWidth={2.6} />Signed</span> : "Review & sign"}
               </span>
             </div>
           </div>

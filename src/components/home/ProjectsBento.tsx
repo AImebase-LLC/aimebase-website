@@ -5,6 +5,7 @@ import { ProjectFeature } from "@/components/ProjectFeature";
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { getFeaturedProjects } from "@/lib/projects";
 import { cta } from "@/lib/site";
+import { ArrowChip } from "@/components/Icon";
 
 /** Home centerpiece: what we've shipped, as a bento, ending in what's next. */
 export function ProjectsBento({ index, total }: { index: number; total: number }) {
@@ -29,8 +30,8 @@ export function ProjectsBento({ index, total }: { index: number; total: number }
             project={lead}
             extra={
               lead.category === "product" ? (
-                <Link href="/aimdoc" className="group/p inline-flex items-center gap-1.5 text-[15px] font-medium text-accent-700 hover:text-accent-800">
-                  Explore the product <span aria-hidden className="transition-transform group-hover/p:translate-x-0.5">→</span>
+                <Link href="/aimdoc" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-accent-700">
+                  <span className="link-sweep">Explore the product</span> <ArrowChip size="sm" />
                 </Link>
               ) : null
             }

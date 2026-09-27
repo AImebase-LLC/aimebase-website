@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { site } from "@/lib/site";
 import { track } from "./Analytics";
+import { Icon } from "./Icon";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 
 export type Interest = "demo" | "project" | "other";
 
@@ -113,7 +115,7 @@ export function ContactForm({
         </div>
       ) : state === "sent" ? (
         <div role="status" className="animate-rise mt-8 rounded-md border border-light-600 bg-light-50 p-8">
-          <span aria-hidden className="flex h-10 w-10 items-center justify-center rounded-full bg-status-live-bg text-status-live">✓</span>
+          <span aria-hidden className="flex h-11 w-11 items-center justify-center rounded-full bg-status-live-bg text-status-live"><Icon icon={Tick02Icon} size={22} strokeWidth={2.2} /></span>
           <p className="display mt-5 text-3xl">Thanks. We&rsquo;ve got it.</p>
           <p className="mt-2 max-w-[44ch] text-[15px] leading-relaxed text-light-900">
             {interest === "demo"

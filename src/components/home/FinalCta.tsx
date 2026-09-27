@@ -2,13 +2,14 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { getFeaturedProjects } from "@/lib/projects";
 import { cta, site } from "@/lib/site";
+import { ArrowChip } from "@/components/Icon";
+import { Icon } from "@/components/Icon";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 
 function Check() {
   return (
-    <span aria-hidden className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent-500 text-dark-500">
-      <svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5">
-        <path d="M2.5 6.5l2.5 2.5 4.5-5.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+    <span aria-hidden className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-500 text-[#0b0b0b]">
+      <Icon icon={Tick02Icon} size={12} strokeWidth={2.6} />
     </span>
   );
 }
@@ -188,7 +189,7 @@ export function FinalCta({
                   >
                     <span aria-hidden className={`h-1.5 w-1.5 shrink-0 rounded-full ${statusDot[p.status] ?? "bg-dark-200"}`} />
                     <span className="min-w-0 truncate">{p.title.split(":").pop()?.trim()}</span>
-                    <span aria-hidden className="ml-auto text-dark-200 transition-transform group-hover:translate-x-0.5 group-hover:text-accent-300">→</span>
+                    <ArrowChip size="sm" tone="dark" className="ml-auto" />
                   </Link>
                 </li>
               ))}

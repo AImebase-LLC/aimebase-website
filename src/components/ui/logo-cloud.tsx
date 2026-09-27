@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { InfiniteSlider } from "./infinite-slider";
 import { ProgressiveBlur } from "./progressive-blur";
+import { Icon } from "@/components/Icon";
+import { GraduationCapIcon, HeartCheckIcon, UserGroupIcon } from "@hugeicons/core-free-icons";
+
+const partnerIcon = (name: string) =>
+  /roux|institute|university/i.test(name) ? GraduationCapIcon : /care/i.test(name) ? HeartCheckIcon : UserGroupIcon;
 
 export type Partner = { name: string; role: string; logo?: string };
 
@@ -34,15 +39,9 @@ export function LogoCloud({ partners }: { partners: Partner[] }) {
             ) : (
               <span
                 aria-hidden
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-secondary-100 font-display text-[13px] font-medium tracking-tight text-secondary-900 transition-colors group-hover:bg-accent-500 group-hover:text-dark-500"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-secondary-100 text-accent-700 transition-colors group-hover:bg-accent-500 group-hover:text-[#0b0b0b]"
               >
-                {p.name
-                  .replace(/^(The|A)\s+/, "")
-                  .split(/\s+/)
-                  .filter((w) => /^[A-Z]/.test(w))
-                  .slice(0, 3)
-                  .map((w) => w[0])
-                  .join("")}
+                <Icon icon={partnerIcon(p.name)} size={20} />
               </span>
             )}
             <span className="flex flex-col">

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@/components/Analytics";
+import { CustomCursor } from "@/components/CustomCursor";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Interactions } from "@/components/Interactions";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Analytics />
         <Interactions />
+        <CustomCursor />
       </body>
     </html>
   );

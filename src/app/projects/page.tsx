@@ -8,6 +8,7 @@ import { Section } from "@/components/Section";
 import { StatusBadge } from "@/components/StatusBadge";
 import { getProjects } from "@/lib/projects";
 import { cta } from "@/lib/site";
+import { ArrowChip, Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Projects | AImbase",
@@ -110,7 +111,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
                   extra={
                     p.category === "product" ? (
                       <Link href="/aimdoc" className="inline-flex items-center gap-1.5 text-[15px] font-medium text-accent-700 hover:text-accent-800">
-                        Explore the product <span aria-hidden>→</span>
+                        <span className="link-sweep">Explore the product</span> <ArrowChip size="sm" />
                       </Link>
                     ) : null
                   }
@@ -137,8 +138,8 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
                   We&rsquo;re researching the next big problem to solve. When we find it, we&rsquo;ll go as deep on it as we did on
                   documentation.
                 </p>
-                <Link href={cta.project.href} data-event={cta.project.event} className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent-300 hover:text-accent-200">
-                  Have a problem worth solving? <span aria-hidden>→</span>
+                <Link href={cta.project.href} data-event={cta.project.event} className="mt-6 inline-flex items-center gap-2.5 text-sm font-medium text-accent-300 hover:text-accent-200">
+                  <span className="link-sweep">Have a problem worth solving?</span> <ArrowChip size="sm" tone="dark" />
                 </Link>
               </div>
             </article>

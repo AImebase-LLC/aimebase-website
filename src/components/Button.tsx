@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowChip } from "./Icon";
 
 type Variant = "primary" | "secondary" | "dark" | "light" | "outlineDark";
 
@@ -52,16 +53,15 @@ export function ArrowLink({
   tone?: "light" | "dark";
   className?: string;
 }) {
-  const color =
-    tone === "dark" ? "text-dark-50 hover:text-accent-300" : "text-dark-500 hover:text-accent-700";
+  const color = tone === "dark" ? "text-dark-50 hover:text-light-50" : "text-dark-500";
   return (
     <Link
       href={href}
       data-event={event}
-      className={`group inline-flex items-center gap-1.5 text-[15px] font-medium underline-offset-4 transition-colors hover:underline ${color} ${className}`}
+      className={`inline-flex items-center gap-2.5 text-[15px] font-medium transition-colors ${color} ${className}`}
     >
-      {children}
-      <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+      <span className="link-sweep">{children}</span>
+      <ArrowChip tone={tone === "dark" ? "dark" : "light"} />
     </Link>
   );
 }

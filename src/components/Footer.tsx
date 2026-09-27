@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { LogoMark, Wordmark } from "./Wordmark";
+import { ArrowChip } from "./Icon";
 
 export function Footer() {
   return (
@@ -39,7 +40,7 @@ export function Footer() {
               </li>
               <li className="text-dark-100">{site.location}</li>
               <li>
-                <Link href="/contact?type=project" className="text-dark-100 hover:text-accent-300">Start a project →</Link>
+                <Link href="/contact?type=project" className="inline-flex items-center gap-2.5 text-dark-100 hover:text-light-50"><span className="link-sweep">Start a project</span> <ArrowChip size="sm" tone="dark" /></Link>
               </li>
               {site.social.map((s) => (
                 <li key={s.href}>

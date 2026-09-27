@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowLink, Button } from "@/components/Button";
 import { getFeaturedProjects } from "@/lib/projects";
 import { cta } from "@/lib/site";
@@ -34,7 +35,7 @@ export function Hero() {
 
           <div className="animate-rise relative [animation-delay:120ms]">
             <p className="mono-label text-accent-300">AI product studio · South Portland, Maine</p>
-            <h1 id="hero-title" className="display mt-5 max-w-[14ch] text-[42px] text-light-50 sm:text-[56px] xl:text-[64px]">
+            <h1 id="hero-title" className="display mt-5 max-w-[14ch] text-[36px] text-light-50 min-[360px]:text-[42px] sm:text-[56px] xl:text-[64px]">
               AI that makes people superfast at the work they already do.
             </h1>
             <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-dark-100">
@@ -52,9 +53,21 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="dot-grid relative flex items-center justify-center overflow-hidden bg-secondary-100 px-4 py-12 md:px-10">
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary-100 via-transparent to-secondary-100/60" />
-          <div className="animate-rise relative flex w-full justify-center [animation-delay:250ms]">
+        <div className="relative isolate flex items-center justify-center overflow-hidden bg-dark-500 px-4 py-12 md:px-10">
+          {/* Misty Maine pines at night, one lit cabin: the light at the end of the shift. */}
+          <Image
+            src="/images/image1.jpg"
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="-z-10 object-cover object-[45%_60%] scale-105 brightness-[1.35] saturate-[1.1] animate-[hero-drift_28s_ease-in-out_infinite_alternate]"
+          />
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-dark-500/25 via-transparent to-dark-500/45" />
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(75%_65%_at_50%_55%,transparent,rgb(11_11_11/0.35))]" />
+          <div aria-hidden className="dot-field pointer-events-none absolute inset-0 -z-10 opacity-40 [mask-image:linear-gradient(to_bottom,transparent,#000_80%)]" />
+          {/* Transform-only entrance: an opacity animation here would stop the glass from blurring the photo. */}
+          <div className="relative flex w-full justify-center animate-[rise-y_0.8s_cubic-bezier(0.2,0.7,0.2,1)_250ms_both]">
             <HeroShowcase items={items} />
           </div>
         </div>

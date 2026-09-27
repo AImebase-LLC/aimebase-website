@@ -1,5 +1,9 @@
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { approach, site } from "@/lib/site";
+import { Icon } from "@/components/Icon";
+import { Rocket01Icon, RepeatIcon, Search01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
+
+const approachIcons = [Search01Icon, UserGroupIcon, Rocket01Icon, RepeatIcon];
 
 /** How we work: the mission as a loop. */
 export function Approach({ index, total, surface }: { index: number; total: number; surface?: string }) {
@@ -31,8 +35,8 @@ export function Approach({ index, total, surface }: { index: number; total: numb
                 0{i + 1}
               </span>
               <span aria-hidden className="h-px flex-1 bg-light-600" />
-              <span aria-hidden className="font-mono text-xs text-light-800 transition-transform duration-300 group-hover:translate-x-1">
-                {i === approach.length - 1 ? "↺" : "→"}
+              <span aria-hidden className="flex h-11 w-11 items-center justify-center border border-light-600 text-accent-700 transition-[transform,background-color,color,border-color] duration-500 group-hover:-rotate-6 group-hover:border-accent-500 group-hover:bg-accent-500 group-hover:text-[#0b0b0b]">
+                <Icon icon={approachIcons[i]} size={22} />
               </span>
             </div>
             <div>

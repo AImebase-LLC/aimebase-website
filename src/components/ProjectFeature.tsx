@@ -3,6 +3,7 @@ import { categoryLabel, clientLabel, type Project } from "@/lib/projects";
 import { ProjectCover } from "./ProjectCover";
 import { LiveLink } from "./LiveLink";
 import { StatusBadge } from "./StatusBadge";
+import { ArrowChip } from "./Icon";
 
 /** Wide project card: cover on one side, the story and numbers on the other. */
 export function ProjectFeature({ project, extra }: { project: Project; extra?: React.ReactNode }) {
@@ -22,7 +23,7 @@ export function ProjectFeature({ project, extra }: { project: Project; extra?: R
           <span className="mono-label hidden sm:inline">· {project.category === "product" ? "AImbase" : clientLabel(project)}</span>
         </div>
         <h3 className="display mt-5 text-3xl leading-tight">
-          <Link href={`/projects/${project.slug}`} data-event="project_card_click" className="transition-colors hover:text-accent-700">
+          <Link href={`/projects/${project.slug}`} data-event="project_card_click" className="transition-colors after:absolute after:inset-0 after:z-0 after:content-[''] hover:text-accent-700 focus-visible:outline-none">
             {project.title}
           </Link>
         </h3>
@@ -38,13 +39,13 @@ export function ProjectFeature({ project, extra }: { project: Project; extra?: R
             ))}
           </dl>
         )}
-        <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-7">
+        <div className="relative z-10 mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-7">
           <Link
             href={`/projects/${project.slug}`}
             data-event="project_card_click"
-            className="group/l inline-flex items-center gap-1.5 text-[15px] font-medium text-dark-500 hover:text-accent-700"
+            className="inline-flex items-center gap-2.5 text-[15px] font-medium text-dark-500"
           >
-            Read the case study <span aria-hidden className="transition-transform group-hover/l:translate-x-0.5">→</span>
+            <span className="link-sweep">Read the case study</span> <ArrowChip size="sm" />
           </Link>
           {extra}
           {project.link && <LiveLink href={project.link} label="Visit live site" />}

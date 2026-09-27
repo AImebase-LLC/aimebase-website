@@ -1,6 +1,8 @@
 import { ArrowLink, Button } from "@/components/Button";
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { cta } from "@/lib/site";
+import { Icon } from "@/components/Icon";
+import { ArrowRight02Icon, SquareLock02Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 
 function Card({ title, body, children, className = "", d = 0 }: { title: string; body: React.ReactNode; children?: React.ReactNode; className?: string; d?: number }) {
   return (
@@ -40,7 +42,7 @@ export function Benefits({ index, total, surface }: { index: number; total: numb
               <div key={g} className="rounded-sm border border-light-600 bg-light-500 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[12px] font-medium text-dark-400">{g}</span>
-                  <span className="text-[12px] text-status-live">✓</span>
+                  <Icon icon={Tick02Icon} size={14} strokeWidth={2.4} className="text-status-live" />
                 </div>
                 <div className="mt-3 space-y-1.5">
                   <div className="h-1.5 w-full rounded-full bg-light-600" />
@@ -85,11 +87,8 @@ export function Benefits({ index, total, surface }: { index: number; total: numb
             </>
           }
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-md bg-secondary-100 text-accent-700" aria-hidden>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="4" y="9" width="12" height="8" rx="1.5" />
-              <path d="M7 9V6.5a3 3 0 0 1 6 0V9" />
-            </svg>
+          <span className="flex h-12 w-12 items-center justify-center rounded-sm bg-secondary-100 text-accent-700" aria-hidden>
+            <Icon icon={SquareLock02Icon} size={22} />
           </span>
         </Card>
 
@@ -108,7 +107,7 @@ export function Benefits({ index, total, surface }: { index: number; total: numb
               {["Rwanda", "Italy", "DSP in Maine", "MS in AI, Roux", "AImbase"].map((p, i, a) => (
                 <li key={p} className="flex items-center gap-2 !text-dark-100">
                   <span className={`rounded-xs border px-2 py-1 ${i === a.length - 1 ? "border-accent-500/50 !text-accent-300" : "border-white/10"}`}>{p}</span>
-                  {i < a.length - 1 && <span aria-hidden className="!text-dark-300">→</span>}
+                  {i < a.length - 1 && <Icon icon={ArrowRight02Icon} size={12} className="!text-dark-300" />}
                 </li>
               ))}
             </ol>

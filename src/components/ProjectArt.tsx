@@ -1,3 +1,6 @@
+import { Tick02Icon } from "@hugeicons/core-free-icons";
+import { Icon } from "./Icon";
+
 /**
  * Illustrated cover for a project with no cover image yet, drawn per `type`.
  * Every element is decorative; the wrapper carries the alt text.
@@ -27,7 +30,7 @@ function Note() {
       <div className="grid grid-cols-2 gap-2 p-3">
         <div className="space-y-1.5">
           {["Morning routine", "Meals", "Community goal"].map((q) => (
-            <div key={q} className="rounded-xs bg-secondary-50 px-1.5 py-1 text-[8.5px] text-dark-400 ring-1 ring-secondary-200">✓ {q}</div>
+            <div key={q} className="rounded-xs bg-secondary-50 px-1.5 py-1 text-[8.5px] text-dark-400 ring-1 ring-secondary-200"><Icon icon={Tick02Icon} size={9} strokeWidth={3} className="inline text-status-live" /> {q}</div>
           ))}
         </div>
         <div className="space-y-1.5 pt-0.5">

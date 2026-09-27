@@ -1,3 +1,5 @@
+import { ArrowChip } from "./Icon";
+
 /** External link to a project's live site. Opens in a new tab. */
 export function LiveLink({
   href,
@@ -14,38 +16,35 @@ export function LiveLink({
 }) {
   if (!href) return null;
   const host = href.replace(/^https?:\/\//, "").replace(/\/$/, "");
-  const icon = (
-    <svg aria-hidden width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5">
-      <path d="M4 2.5h5.5V8M9.5 2.5L2.5 9.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
+  const common = {
+    href,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    "data-event": "live_site_click",
+  } as const;
   if (variant === "button") {
     return (
       <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-event="live_site_click"
-        className={`group/live inline-flex h-11 items-center gap-2 rounded-sm border px-4 text-[15px] font-medium transition-colors ${
+        {...common}
+        className={`inline-flex h-11 items-center gap-3 rounded-sm border pr-2.5 pl-4 text-[15px] font-medium transition-colors ${
           tone === "dark" ? "border-white/15 text-light-50 hover:border-white/30" : "border-light-600 bg-light-50 text-dark-500 hover:border-light-700"
         } ${className}`}
       >
-        {label ?? "Visit live site"} {icon}
+        {label ?? "Visit live site"}
+        <ArrowChip direction="up-right" tone={tone} />
         <span className="sr-only">(opens {host} in a new tab)</span>
       </a>
     );
   }
   return (
     <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      data-event="live_site_click"
-      className={`group/live inline-flex items-center gap-1.5 text-[15px] font-medium transition-colors ${
-        tone === "dark" ? "text-accent-300 hover:text-accent-200" : "text-dark-500 hover:text-accent-700"
+      {...common}
+      className={`inline-flex items-center gap-2.5 text-[15px] font-medium transition-colors ${
+        tone === "dark" ? "text-accent-300" : "text-dark-500"
       } ${className}`}
     >
-      {label ?? host} {icon}
+      <span className="link-sweep">{label ?? host}</span>
+      <ArrowChip direction="up-right" size="sm" tone={tone} />
       <span className="sr-only">(opens in a new tab)</span>
     </a>
   );

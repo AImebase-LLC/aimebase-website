@@ -1,4 +1,6 @@
 import { Heading, Section, SectionLabel } from "@/components/Section";
+import { Icon } from "@/components/Icon";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 
 const quick = ["Morning routine", "Meals", "Activities", "Community goal", "Anything else?"];
 
@@ -58,7 +60,7 @@ export function BeforeAfter({ index, total, surface }: { index: number; total: n
                   style={{ transitionDelay: `${400 + i * 120}ms` }}
                   className="flex items-center gap-1.5 rounded-xs bg-light-50 px-2 py-1 text-[11.5px] text-dark-400 ring-1 ring-secondary-200 transition-[opacity,transform] duration-500 [html.js_[data-shown]_&]:translate-y-0 [html.js_[data-shown]_&]:opacity-100 [html.js_&]:translate-y-1 [html.js_&]:opacity-0"
                 >
-                  <span className="text-status-live">✓</span>
+                  <Icon icon={Tick02Icon} size={12} strokeWidth={2.4} className="text-status-live" />
                   {q}
                 </li>
               ))}

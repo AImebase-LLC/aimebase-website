@@ -7,6 +7,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { getProjects } from "@/lib/projects";
 import { cta } from "@/lib/site";
+import { ArrowChip, Icon } from "@/components/Icon";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 
 export const metadata: Metadata = {
   title: "Custom software for community organizations | AImbase",
@@ -72,13 +74,13 @@ export default function CustomPage() {
                 <div>
                   <p className="display text-xl leading-snug">{b.title}</p>
                   <p className="mt-2 text-[14px] leading-relaxed text-light-900">{b.body}</p>
-                  {match && <p className="mt-4 text-sm font-medium text-accent-700">See the project <span aria-hidden className="inline-block transition-transform group-hover:translate-x-0.5">→</span></p>}
+                  {match && <p className="mt-4 text-sm font-medium text-accent-700"><span className="link-sweep">See the project</span> <ArrowChip size="sm" className="ml-1.5 align-middle" /></p>}
                 </div>
               </>
             );
             const cls = "group flex h-full min-h-56 flex-col justify-between gap-8 rounded-lg border border-light-600 bg-light-500 p-6 transition-[border-color,transform,box-shadow] duration-300";
             return (
-              <li key={b.type} data-reveal data-spotlight style={{ "--d": i } as React.CSSProperties} className="rounded-lg">
+              <li key={b.type} data-reveal data-spotlight data-cursor={match ? "explore" : undefined} style={{ "--d": i } as React.CSSProperties} className="rounded-lg">
                 {match ? (
                   <Link href={`/projects?type=${match.type}`} data-event="project_card_click" className={`${cls} hover:-translate-y-0.5 hover:border-light-700 hover:shadow-[0_16px_36px_-22px_rgb(11_11_11/0.3)]`}>{inner}</Link>
                 ) : (
@@ -131,7 +133,7 @@ export default function CustomPage() {
           <ul className="divide-y divide-secondary-300">
             {["You serve a real community.", "You're slowed down by manual work.", "Generic tools haven't fit."].map((t) => (
               <li key={t} className="flex items-center gap-4 px-6 py-7 text-lg md:px-10">
-                <span aria-hidden className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-dark-500 text-xs text-light-50">✓</span>
+                <span aria-hidden className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-dark-500 text-light-50"><Icon icon={Tick02Icon} size={16} strokeWidth={2.2} /></span>
                 {t}
               </li>
             ))}

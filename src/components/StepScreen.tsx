@@ -1,3 +1,5 @@
+import { Icon } from "./Icon";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 /** Product screens for the three AImdoc steps: ask, draft, review. Decorative. */
 export function StepScreen({ i, compact = false }: { i: number; compact?: boolean }) {
   const shell = `w-full max-w-md rounded-lg border border-secondary-300 bg-light-50 shadow-[0_20px_50px_-28px_rgb(107_28_2/0.45)] ${compact ? "p-3.5" : "p-4"}`;
@@ -38,7 +40,7 @@ export function StepScreen({ i, compact = false }: { i: number; compact?: boolea
       </p>
       <div className="mt-4 flex items-center justify-between rounded-sm bg-light-500 p-3 ring-1 ring-light-600">
         <span className="flex items-center gap-2 text-[13px] text-dark-400">
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-status-live-bg text-[11px] text-status-live">✓</span>
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-status-live-bg text-status-live"><Icon icon={Tick02Icon} size={12} strokeWidth={2.4} /></span>
           Edited and approved
         </span>
         <span className="rounded-xs bg-dark-500 px-2.5 py-1 text-[12px] text-light-50">Sign off</span>

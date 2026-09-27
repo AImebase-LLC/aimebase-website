@@ -3,6 +3,8 @@ import { ArrowLink, Button } from "@/components/Button";
 import { FinalCta } from "@/components/home/FinalCta";
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { cta, securityPrinciples, securityReview, site } from "@/lib/site";
+import { Icon } from "@/components/Icon";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 
 export const metadata: Metadata = {
   title: "Security & privacy | AImdoc | AImbase",
@@ -47,7 +49,7 @@ export default function SecurityPage() {
                   >
                     <span className="font-mono text-[11px] tracking-wide text-dark-200 uppercase">{r.k}</span>
                     <span className={`flex items-center gap-2 text-[15px] ${r.tone}`}>
-                      {i > 0 && <span className="text-[#3ecf8e]">✓</span>}
+                      {i > 0 && <Icon icon={Tick02Icon} size={16} strokeWidth={2.2} className="text-[#3ecf8e]" />}
                       {r.v}
                     </span>
                   </div>
