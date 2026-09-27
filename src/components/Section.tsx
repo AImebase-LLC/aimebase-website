@@ -1,3 +1,5 @@
+import { DotField } from "./ui/dot-field";
+
 /** Firecrawl-style section: full-bleed top rule, framed column with rails. */
 export function Section({
   children,
@@ -14,8 +16,23 @@ export function Section({
   "aria-labelledby"?: string;
   "aria-label"?: string;
 }) {
+  // "pattern-field": interactive dot field behind the section, tinted for its theme.
+  const field = className.includes("pattern-field");
+  const dark = className.includes("theme-dark");
   return (
-    <section id={id} aria-labelledby={labelledBy} aria-label={label} className={`rule ${className}`}>
+    <section id={id} aria-labelledby={labelledBy} aria-label={label} className={`rule ${field ? "relative isolate" : ""} ${className}`}>
+      {field && (
+        <DotField
+          className="-z-10"
+          dotRadius={1.5}
+          dotSpacing={14}
+          bulgeStrength={60}
+          glowRadius={180}
+          gradientFrom={dark ? "rgba(255, 255, 255, 0.3)" : "rgba(181, 48, 4, 0.42)"}
+          gradientTo={dark ? "rgba(255, 129, 88, 0.26)" : "rgba(255, 105, 55, 0.3)"}
+          glowColor={dark ? "rgba(255, 67, 5, 0.16)" : "rgba(255, 67, 5, 0.1)"}
+        />
+      )}
       <div className={`frame ${frameClassName}`}>{children}</div>
     </section>
   );

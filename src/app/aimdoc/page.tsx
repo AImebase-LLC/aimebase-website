@@ -111,7 +111,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 2. How it works */}
-      <Section id="how" aria-labelledby="steps-title" className="theme-s100 pattern-grid">
+      <Section id="how" aria-labelledby="steps-title" className="theme-s100 pattern-field">
         <SectionLabel index={3} total={TOTAL}>How it works</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="steps-title" className="text-4xl md:text-5xl">How AImdoc works</Heading>
@@ -136,7 +136,7 @@ export default function AimdocPage() {
       <Benefits index={5} total={TOTAL} surface="theme-s200 pattern-dots" />
 
       {/* Features */}
-      <Section aria-labelledby="features-title" className="theme-dark pattern-grid">
+      <Section aria-labelledby="features-title" className="theme-dark pattern-field">
         <SectionLabel index={6} total={TOTAL}>Features</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="features-title" className="text-4xl md:text-5xl">What&rsquo;s in AImdoc</Heading>

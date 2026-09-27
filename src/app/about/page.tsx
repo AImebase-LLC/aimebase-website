@@ -131,7 +131,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 5. The name + 6. What's next */}
-      <Section aria-label="The name and what's next" className="theme-s200 pattern-grid">
+      <Section aria-label="The name and what's next" className="theme-s200 pattern-field">
         <div className="grid md:grid-cols-2">
           <div className="border-b border-light-600 md:border-r md:border-b-0">
             <SectionLabel index={4} total={5}>The name</SectionLabel>

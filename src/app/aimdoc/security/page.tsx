@@ -82,7 +82,7 @@ export default function SecurityPage() {
         </ul>
       </Section>
 
-      <Section id="review" aria-labelledby="review-title" className="theme-s50 pattern-grid">
+      <Section id="review" aria-labelledby="review-title" className="theme-s50 pattern-field">
         <SectionLabel index={2} total={2}>Compliance review</SectionLabel>
         <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
           <div className="px-6 py-14 md:px-10 lg:border-r lg:border-light-600">

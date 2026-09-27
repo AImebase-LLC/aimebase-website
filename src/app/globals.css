@@ -350,12 +350,7 @@ label:has(> input[type="checkbox"]) {
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
-.pattern-grid {
-  background-image:
-    linear-gradient(var(--pattern) 1px, transparent 1px),
-    linear-gradient(to right, var(--pattern) 1px, transparent 1px);
-  background-size: 10px 10px;
-}
+/* .pattern-field: interactive DotField, rendered by <Section> (components/ui/dot-field.tsx) */
 .pattern-diagonal {
   background-image: repeating-linear-gradient(45deg, var(--pattern) 0, var(--pattern) 1px, transparent 0, transparent 50%);
   background-size: 10px 10px;
