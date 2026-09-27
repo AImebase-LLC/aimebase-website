@@ -1,5 +1,6 @@
 import { Section, SectionLabel } from "./Section";
 import { site } from "@/lib/site";
+import { LegalToc } from "./LegalToc";
 
 export type LegalSection = { heading: string; body: React.ReactNode };
 
@@ -8,21 +9,10 @@ export function LegalPage({ title, updated, intro, sections }: { title: string; 
     <Section aria-labelledby="page-title" className="bg-light-50">
       <SectionLabel>Legal</SectionLabel>
       <div className="grid border-t border-light-600 lg:grid-cols-[280px_minmax(0,1fr)]">
-        <aside className="border-b border-light-600 px-6 py-10 md:px-10 lg:border-r lg:border-b-0 lg:px-8">
-          <div className="lg:sticky lg:top-24">
-            <p className="mono-label text-light-900">On this page</p>
-            <ol className="mt-4 space-y-2 text-sm">
-              {sections.map((s, i) => (
-                <li key={s.heading}>
-                  <a href={`#s${i + 1}`} className="text-light-900 transition-colors hover:text-dark-500">
-                    {i + 1}. {s.heading}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
+        <aside className="border-light-600 lg:border-r lg:px-8 lg:py-10">
+          <LegalToc items={sections.map((sec, i) => ({ id: `s${i + 1}`, label: sec.heading }))} />
         </aside>
-        <article className="px-6 py-14 md:px-10 md:py-20">
+        <article className="px-6 pt-14 pb-32 md:px-10 md:pt-20 lg:pb-20">
           <h1 id="page-title" className="animate-rise display text-5xl md:text-6xl">{title}</h1>
           <p className="mt-4 font-mono text-xs text-light-900">
             {site.legalEntity} · {site.location} · Last updated {updated}
