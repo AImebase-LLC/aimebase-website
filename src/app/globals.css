@@ -96,6 +96,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Tailwind v4 resets buttons to the default cursor; interactive controls should show the hand. */
+button:not(:disabled),
+[role="button"],
+[role="tab"],
+summary,
+label:has(> input[type="radio"]),
+label:has(> input[type="checkbox"]) {
+  cursor: pointer;
+}
+
 ::selection {
   background: var(--color-accent-100);
   color: var(--color-dark-500);

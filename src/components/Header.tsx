@@ -167,7 +167,11 @@ export function Header({ projects }: { projects: NavProject[] }) {
       <div ref={wrap} className="frame relative" onMouseLeave={hide}>
         {/* The bar, on the page grid */}
         <div className="flex h-16 items-center justify-between gap-3 pr-3 pl-4 sm:pl-5 md:pr-4 md:pl-10">
-          <Wordmark className="h-5 sm:h-[22px] md:h-[26px]" />
+          <div className="flex min-w-0 items-center gap-3">
+            <Wordmark className="h-5 sm:h-[22px] md:h-[26px]" />
+            <span aria-hidden className="hidden h-5 w-px bg-dark-500/20 xl:block" />
+            <span className="hidden font-mono text-[11px] tracking-[0.08em] whitespace-nowrap text-light-900 uppercase xl:block">AI Product Studio</span>
+          </div>
 
           <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
             {navGroups.map((g, i) => {

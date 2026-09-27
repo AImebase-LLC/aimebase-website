@@ -9,7 +9,7 @@ import { ProjectsBento } from "@/components/home/ProjectsBento";
 import { ProofStrip } from "@/components/home/ProofStrip";
 
 export const metadata: Metadata = {
-  title: "AImbase: AI product studio in Maine",
+  title: "AIMEBASE | AI Product Studio",
   description:
     "AImbase builds AI-powered software that makes people superfast at what they already do. Products like AImdoc, and custom builds for community organizations, shipped in days.",
 };

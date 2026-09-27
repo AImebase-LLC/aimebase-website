@@ -16,7 +16,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "AImbase: AI software for frontline work · AImdoc",
+    default: "AIMEBASE | AI Product Studio",
     template: "%s",
   },
   description:

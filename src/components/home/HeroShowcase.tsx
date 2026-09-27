@@ -72,10 +72,10 @@ export function HeroShowcase({ items }: { items: ShowcaseItem[] }) {
               aria-selected={n === i}
               aria-controls="showcase-panel"
               onClick={() => setI(n)}
-              className={`relative px-3 py-3 text-left transition-colors ${n === i ? t.tabOn : t.tabOff} ${n > 0 ? `border-l ${t.line}` : ""}`}
+              className={`group/tab relative cursor-pointer px-3 py-3 text-left transition-colors ${n === i ? t.tabOn : t.tabOff} ${n > 0 ? `border-l ${t.line}` : ""}`}
             >
               <span className={`block font-mono text-[10px] tracking-wide uppercase ${n === i ? "text-accent-300" : t.muted}`}>0{n + 1}</span>
-              <span className={`mt-0.5 block truncate text-[12.5px] font-medium ${n === i ? "text-white" : t.soft}`}>
+              <span className={`mt-0.5 block truncate text-[12.5px] font-medium transition-colors ${n === i ? "text-white" : `${t.soft} group-hover/tab:text-white`}`}>
                 <span className="xl:hidden">{short[it.type] ?? it.title.split(":").pop()?.trim()}</span>
                 <span className="hidden xl:inline">{it.title.split(":").pop()?.trim()}</span>
               </span>
