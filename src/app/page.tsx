@@ -24,8 +24,8 @@ export default function Home() {
       <ProofStrip />
       <Approach index={1} total={TOTAL} surface="theme-dark pattern-dots" />
       <ProjectsBento index={2} total={TOTAL} />
-      <Capabilities index={3} total={TOTAL} surface="theme-peach pattern-grid" />
-      <Founder index={4} total={TOTAL} surface="bg-light-500 pattern-diagonal" />
+      <Capabilities index={3} total={TOTAL} surface="theme-s200 pattern-grid" />
+      <Founder index={4} total={TOTAL} surface="theme-s50 pattern-diagonal" />
       <FinalCta variant="studio" title="Have a problem worth solving?" />
     </>
   );

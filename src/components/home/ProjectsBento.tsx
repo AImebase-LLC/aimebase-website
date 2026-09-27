@@ -11,7 +11,7 @@ export function ProjectsBento({ index, total }: { index: number; total: number }
   const [lead, ...rest] = getFeaturedProjects();
   if (!lead) return null;
   return (
-    <Section id="work" aria-labelledby="work-title" className="scroll-mt-16 bg-light-50">
+    <Section id="work" aria-labelledby="work-title" className="scroll-mt-16 theme-s100 pattern-dots">
       <SectionLabel index={index} total={total}>Our work</SectionLabel>
       <div className="flex flex-col gap-4 border-t border-light-600 px-6 py-14 md:flex-row md:items-end md:justify-between md:px-10 md:py-16">
         <div>

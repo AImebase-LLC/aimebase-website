@@ -58,7 +58,7 @@ export default function CustomPage() {
         <Button href={cta.project.href} event={cta.project.event} size="lg">{cta.project.label}</Button>
       </PageHero>
 
-      <Section aria-labelledby="build-title" className="bg-light-50">
+      <Section aria-labelledby="build-title" className="theme-s50">
         <SectionLabel index={1} total={TOTAL}>What we build</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="build-title" className="text-4xl md:text-5xl">What we build</Heading>
@@ -107,7 +107,7 @@ export default function CustomPage() {
       </Section>
 
       {customProjects.length > 0 && (
-        <Section aria-labelledby="proof-title" className="bg-light-500 pattern-dots">
+        <Section aria-labelledby="proof-title" className="theme-s100 pattern-dots">
           <SectionLabel index={3} total={TOTAL}>Proof</SectionLabel>
           <div className="border-t border-light-600 px-6 py-14 md:px-10">
             <Heading id="proof-title" className="text-4xl md:text-5xl">Built for communities</Heading>
@@ -122,7 +122,7 @@ export default function CustomPage() {
         </Section>
       )}
 
-      <Section aria-labelledby="fit-title" className="bg-secondary-100">
+      <Section aria-labelledby="fit-title" className="theme-s300 pattern-diagonal">
         <SectionLabel index={4} total={TOTAL}>Fit check</SectionLabel>
         <div className="grid border-t border-secondary-300 md:grid-cols-2">
           <div className="px-6 py-14 md:border-r md:border-secondary-300 md:px-10">

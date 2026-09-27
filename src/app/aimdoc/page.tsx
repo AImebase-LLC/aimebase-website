@@ -84,7 +84,7 @@ export default function AimdocPage() {
       <Problem index={1} total={TOTAL} surface="theme-dark pattern-dots" />
 
       {/* Who it's for */}
-      <Section aria-labelledby="for-title" className="bg-light-50">
+      <Section aria-labelledby="for-title" className="theme-s50">
         <SectionLabel index={2} total={TOTAL}>Who it&rsquo;s for</SectionLabel>
         <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <div className="px-6 py-12 md:px-10 lg:border-r lg:border-light-600">
@@ -111,7 +111,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 2. How it works */}
-      <Section id="how" aria-labelledby="steps-title" className="theme-peach pattern-grid">
+      <Section id="how" aria-labelledby="steps-title" className="theme-s100 pattern-grid">
         <SectionLabel index={3} total={TOTAL}>How it works</SectionLabel>
         <div className="border-t border-light-600 px-6 py-14 md:px-10">
           <Heading id="steps-title" className="text-4xl md:text-5xl">How AImdoc works</Heading>
@@ -132,8 +132,8 @@ export default function AimdocPage() {
         ))}
       </Section>
 
-      <BeforeAfter index={4} total={TOTAL} surface="bg-light-500 pattern-diagonal" />
-      <Benefits index={5} total={TOTAL} surface="bg-light-50 pattern-dots" />
+      <BeforeAfter index={4} total={TOTAL} surface="theme-s50 pattern-diagonal" />
+      <Benefits index={5} total={TOTAL} surface="theme-s200 pattern-dots" />
 
       {/* Features */}
       <Section aria-labelledby="features-title" className="theme-dark pattern-grid">
@@ -221,7 +221,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 6. FAQ */}
-      <Section aria-labelledby="faq-title" className="bg-light-50">
+      <Section aria-labelledby="faq-title" className="theme-s100">
         <SectionLabel index={9} total={TOTAL}>FAQ</SectionLabel>
         <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <div className="px-6 py-14 md:px-10 lg:border-r lg:border-light-600">
@@ -239,7 +239,7 @@ export default function AimdocPage() {
       </Section>
 
       {/* 7. Pricing */}
-      <Section aria-labelledby="pricing-title" className="bg-secondary-100">
+      <Section aria-labelledby="pricing-title" className="theme-s300 pattern-dots">
         <SectionLabel index={10} total={TOTAL}>Pricing</SectionLabel>
         <div className="flex flex-col gap-6 border-t border-secondary-300 px-6 py-14 md:flex-row md:items-center md:justify-between md:px-10">
           <div>

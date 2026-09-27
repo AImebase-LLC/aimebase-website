@@ -66,7 +66,7 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Origin story + 7. Founder facts */}
-      <Section aria-labelledby="story-title" className="bg-light-50">
+      <Section aria-labelledby="story-title" className="theme-s50">
         <SectionLabel index={1} total={5}>Origin story</SectionLabel>
         <div className="grid border-t border-light-600 lg:grid-cols-[1fr_340px]">
           <div className="px-6 py-14 md:px-10 md:py-20 lg:border-r lg:border-light-600">
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 4. What we believe */}
-      <Section id="values" aria-labelledby="values-title" className="scroll-mt-24 bg-light-500 pattern-dots">
+      <Section id="values" aria-labelledby="values-title" className="scroll-mt-24 theme-s100 pattern-dots">
         <SectionLabel index={3} total={5}>What we believe</SectionLabel>
         <div className="grid border-t border-light-600 md:grid-cols-[1fr_2fr]">
           <div className="px-6 py-14 md:border-r md:border-light-600 md:px-10">
@@ -131,7 +131,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 5. The name + 6. What's next */}
-      <Section aria-label="The name and what's next" className="theme-peach pattern-grid">
+      <Section aria-label="The name and what's next" className="theme-s200 pattern-grid">
         <div className="grid md:grid-cols-2">
           <div className="border-b border-light-600 md:border-r md:border-b-0">
             <SectionLabel index={4} total={5}>The name</SectionLabel>

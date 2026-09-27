@@ -3,7 +3,7 @@ import { proofStrip } from "@/lib/site";
 /** Home §2: proof strip. Every item is a fact from the content spec. */
 export function ProofStrip() {
   return (
-    <section aria-label="Proof" className="rule bg-light-500">
+    <section aria-label="Proof" className="rule theme-s50">
       <dl className="frame grid grid-cols-2 lg:grid-cols-4">
         {proofStrip.map((p, i) => (
           <div

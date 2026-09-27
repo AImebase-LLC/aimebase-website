@@ -284,13 +284,44 @@ body {
   color: #0b0b0b;
 }
 .theme-accent .text-accent-300 { color: #0b0b0b; }
-/* Warm chapter */
-.theme-peach {
+/* Warm chapters: the secondary scale from the token file, lightest to deepest.
+ * Cards stay white (light-50); section-level surfaces and borders take the tint.
+ * Muted text steps down to #5C5C5C (≥4.9:1 on every tint). */
+.theme-s50,
+.theme-s100,
+.theme-s200,
+.theme-s300 {
   --color-light-50: #ffffff;
-  --color-light-500: #fff4f0;
-  --color-light-600: #f5d9ce;
-  --rule: #f5d9ce;
-  background-color: #fff4f0;
+  --color-light-900: #5c5c5c;
+  background-color: var(--color-light-500);
+}
+.theme-s50 {
+  --color-light-500: #fff9f7;
+  --color-light-600: #f6e3db;
+  --rule: #f6e3db;
+  --pattern: rgb(181 48 4 / 0.07);
+}
+.theme-s100 {
+  --color-light-500: #ffebe5;
+  --color-light-600: #f4d2c6;
+  --rule: #f4d2c6;
+  --pattern: rgb(181 48 4 / 0.09);
+}
+.theme-s200 {
+  --color-light-500: #ffe2d8;
+  --color-light-600: #efc6b7;
+  --color-secondary-100: #fff4f0;
+  --color-accent-700: #8c2503;
+  --rule: #efc6b7;
+  --pattern: rgb(140 37 3 / 0.1);
+}
+.theme-s300 {
+  --color-light-500: #ffd4c6;
+  --color-light-600: #e8b4a1;
+  --color-secondary-100: #ffebe5;
+  --color-accent-700: #8c2503;
+  --rule: #e8b4a1;
+  --pattern: rgb(140 37 3 / 0.11);
 }
 
 /* ---------- Section patterns ----------
@@ -317,7 +348,6 @@ body {
 }
 .theme-dark { --pattern: rgb(255 255 255 / 0.075); }
 .theme-accent { --pattern: rgb(11 11 11 / 0.1); }
-.theme-peach { --pattern: rgb(181 48 4 / 0.09); }
 
 /* ---------- Motion ---------- */
 

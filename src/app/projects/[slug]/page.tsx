@@ -123,7 +123,7 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       {/* 4 + 7. Body sections with meta sidebar */}
-      <Section aria-label="Case study" className="bg-light-500">
+      <Section aria-label="Case study" className="theme-s50">
         <div className="grid lg:grid-cols-[1fr_320px]">
           <article
             className="prose-aim px-6 py-14 md:px-10 md:py-20 lg:border-r lg:border-light-600"
@@ -192,7 +192,7 @@ export default async function ProjectPage({ params }: Props) {
       )}
       {/* 9. More projects */}
       {more.length > 0 && (
-        <Section aria-labelledby="more-title" className="bg-light-500">
+        <Section aria-labelledby="more-title" className="theme-s100 pattern-dots">
           <SectionLabel>More projects</SectionLabel>
           <h2 id="more-title" className="sr-only">More projects</h2>
           <div className="grid gap-3 border-t border-light-600 p-3 sm:grid-cols-2 md:p-4">
