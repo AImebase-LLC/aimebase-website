@@ -5,15 +5,17 @@ export function Section({
   className = "",
   frameClassName = "",
   "aria-labelledby": labelledBy,
+  "aria-label": label,
 }: {
   children: React.ReactNode;
   id?: string;
   className?: string;
   frameClassName?: string;
   "aria-labelledby"?: string;
+  "aria-label"?: string;
 }) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={`rule ${className}`}>
+    <section id={id} aria-labelledby={labelledBy} aria-label={label} className={`rule ${className}`}>
       <div className={`frame ${frameClassName}`}>{children}</div>
     </section>
   );

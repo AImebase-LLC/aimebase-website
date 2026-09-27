@@ -196,7 +196,7 @@ export function FinalCta({
           </div>
 
           {/* Talk to us */}
-          <div data-reveal style={{ "--d": 3 } as React.CSSProperties} className={`${card} lg:col-span-4`}>
+          <div data-reveal style={{ "--d": 3 } as React.CSSProperties} className={`${card} md:col-span-2 lg:col-span-4`}>
             <div className="flex items-center gap-2 p-5 md:p-6">
               <Badge>Talk to us</Badge>
               <div className="ml-auto">

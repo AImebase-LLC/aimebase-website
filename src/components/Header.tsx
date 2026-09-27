@@ -140,7 +140,7 @@ export function Header({ projects }: { projects: NavProject[] }) {
             scrolled ? "shadow-[inset_0_1px_0_rgb(255_255_255/0.95),0_0_0_1px_rgb(11_11_11/0.1),0_18px_40px_-16px_rgb(11_11_11/0.45)]" : ""
           }`}
         >
-          <Wordmark className="h-[17px] md:h-[19px]" />
+          <Wordmark className="h-[22px] md:h-[26px]" />
 
           <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">
             {navGroups.map((g, i) => {

@@ -126,7 +126,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
             <ProjectCard key={p.slug} project={p} />
           ))}
           {research.length === 0 && (category === "all" || category === "product") && !sp.type && (
-            <article data-reveal className="relative flex min-h-80 flex-col justify-between gap-10 overflow-hidden rounded-md bg-dark-500 p-6 text-light-50 md:p-8">
+            <article data-reveal className="relative flex min-h-80 flex-col justify-between gap-10 overflow-hidden rounded-md bg-dark-500 p-6 text-light-50 sm:col-span-2 md:p-8 lg:col-span-1">
               <div aria-hidden className="dot-field pointer-events-none absolute inset-0 [mask-image:radial-gradient(80%_70%_at_100%_0%,#000,transparent)]" />
               <div aria-hidden className="pointer-events-none absolute -right-16 -bottom-20 h-56 w-56 rounded-full bg-accent-500/25 blur-3xl" />
               <span className="relative inline-flex w-fit items-center gap-1.5 rounded-xs bg-white/10 px-1.5 py-0.5 font-mono text-[10px] tracking-wide uppercase">

@@ -137,11 +137,11 @@ export default function AboutPage() {
             <SectionLabel index={4} total={5}>The name</SectionLabel>
             <div className="border-t border-light-600 px-6 py-14 md:px-10">
               <div className="flex items-center gap-6">
-                <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-dark-500">
-                  <LogoMark className="h-10 w-auto" />
+                <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-lg bg-dark-500 md:h-28 md:w-28">
+                  <LogoMark className="h-12 w-auto md:h-14" />
                 </span>
                 <div>
-                  <WordmarkSvg className="h-8 w-auto md:h-10" />
+                  <WordmarkSvg className="h-10 w-auto md:h-14" />
                   <p className="mt-3 font-mono text-sm text-light-900">/ {site.pronunciation} /</p>
                 </div>
               </div>

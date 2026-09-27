@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="rule">
       <div className="frame grid lg:min-h-[740px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
-        <div className="relative flex flex-col justify-between gap-16 overflow-hidden bg-dark-500 px-6 pt-12 pb-12 md:px-10 lg:pt-14">
+        <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-dark-500 px-5 pt-8 pb-10 sm:gap-14 sm:px-6 sm:pt-12 sm:pb-12 md:px-10 lg:pt-14">
           <div aria-hidden className="dot-field pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_50%_at_0%_0%,#000,transparent)]" />
           <div className="animate-rise relative flex max-w-md items-center gap-3 rounded-md border border-dark-400 bg-dark-400/40 p-3">
             <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-status-live-bg">

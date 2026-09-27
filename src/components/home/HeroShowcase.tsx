@@ -64,8 +64,8 @@ export function HeroShowcase({ items }: { items: ShowcaseItem[] }) {
             >
               <span className={`block font-mono text-[10px] tracking-wide uppercase ${n === i ? "text-accent-700" : "text-light-900"}`}>0{n + 1}</span>
               <span className={`mt-0.5 block truncate text-[12.5px] font-medium ${n === i ? "text-dark-500" : "text-dark-400"}`}>
-                <span className="sm:hidden">{short[it.type] ?? it.title.split(":").pop()?.trim()}</span>
-                <span className="hidden sm:inline">{it.title.split(":").pop()?.trim()}</span>
+                <span className="xl:hidden">{short[it.type] ?? it.title.split(":").pop()?.trim()}</span>
+                <span className="hidden xl:inline">{it.title.split(":").pop()?.trim()}</span>
               </span>
               {n === i && (
                 <span aria-hidden className="absolute inset-x-0 bottom-0 h-0.5 bg-light-600">
