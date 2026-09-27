@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArrowLink } from "@/components/Button";
 import { FinalCta } from "@/components/home/FinalCta";
 import { LogoMark, WordmarkSvg } from "@/components/Wordmark";
 import { FounderJourney } from "@/components/FounderJourney";
@@ -132,32 +133,33 @@ export default function AboutPage() {
 
       {/* 5. The name + 6. What's next */}
       <Section aria-label="The name and what's next" className="theme-s200 pattern-field">
-        <div className="grid md:grid-cols-2">
-          <div className="border-b border-light-600 md:border-r md:border-b-0">
+        <div className="grid lg:grid-cols-2">
+          <div className="border-b border-light-600 lg:border-r lg:border-b-0">
             <SectionLabel index={4} total={5}>The name</SectionLabel>
-            <div className="border-t border-light-600 px-6 py-14 md:px-10">
-              <div className="flex items-center gap-6">
-                <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-lg bg-dark-500 md:h-28 md:w-28">
-                  <LogoMark className="h-12 w-auto md:h-14" />
+            <div className="border-t border-light-600 px-5 py-10 sm:px-6 sm:py-12 md:px-10 lg:py-14">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-dark-500 sm:h-20 sm:w-20 xl:h-24 xl:w-24">
+                  <LogoMark className="h-8 w-auto sm:h-10 xl:h-12" />
                 </span>
-                <div>
-                  <WordmarkSvg className="h-10 w-auto md:h-14" />
-                  <p className="mt-3 font-mono text-sm text-light-900">/ {site.pronunciation} /</p>
+                <div className="min-w-0">
+                  <WordmarkSvg className="h-8 w-auto max-w-full min-[380px]:h-9 sm:h-11 xl:h-14" />
+                  <p className="mt-2 font-mono text-[13px] text-light-900 sm:mt-3 sm:text-sm">/ {site.pronunciation} /</p>
                 </div>
               </div>
-              <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-dark-400">
+              <p className="mt-6 max-w-[48ch] text-base leading-relaxed text-dark-400 sm:text-[17px]">
                 The AI is capitalized because artificial intelligence is our foundation. <em>Base</em> means foundation,
                 ground, home. Everything we build stands on it.
               </p>
             </div>
           </div>
-          <div>
+          <div className="flex flex-col">
             <SectionLabel index={5} total={5}>What&rsquo;s next</SectionLabel>
-            <div className="border-t border-light-600 px-6 py-14 md:px-10">
-              <p className="display text-3xl leading-tight">
+            <div className="flex flex-1 flex-col justify-between gap-8 border-t border-light-600 px-5 py-10 sm:px-6 sm:py-12 md:px-10 lg:py-14">
+              <p className="display max-w-[24ch] text-[26px] leading-tight sm:text-3xl xl:text-[34px]">
                 We&rsquo;re researching the next big problem to solve. When we find it, we&rsquo;ll go as deep on it as we did on
                 documentation.
               </p>
+              <ArrowLink href="/contact?type=project" event="project_cta_click">Start a project</ArrowLink>
             </div>
           </div>
         </div>
