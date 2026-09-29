@@ -12,6 +12,7 @@ import { Section, SectionLabel } from "@/components/Section";
 import { StatusBadge } from "@/components/StatusBadge";
 import { categoryLabel, clientLabel, getProject, getProjects, hasDetailPage } from "@/lib/projects";
 import { canRender, cta, isPlaceholder, site } from "@/lib/site";
+import { BrowserWindow } from "@/components/ui/browser-window";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -162,9 +163,11 @@ export default async function ProjectPage({ params }: Props) {
         <Section aria-label="Gallery" className="bg-light-50">
           <div className="grid gap-3 p-3 sm:grid-cols-2 md:p-4">
             {project.gallery.map((g) => (
-              <div key={g.src} className="relative aspect-[16/10] overflow-hidden rounded-md border border-light-600">
-                <Image src={g.src} alt={g.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
-              </div>
+              <BrowserWindow key={g.src} url={project.link || undefined}>
+                <div className="relative aspect-[1485/812] bg-dark-500">
+                  <Image src={g.src} alt={g.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-contain" />
+                </div>
+              </BrowserWindow>
             ))}
           </div>
         </Section>

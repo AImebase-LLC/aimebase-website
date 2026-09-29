@@ -1,5 +1,6 @@
 import { Tick02Icon } from "@hugeicons/core-free-icons";
 import { Icon } from "./Icon";
+import { BrowserWindow } from "@/components/ui/browser-window";
 
 /**
  * Illustrated cover for a project with no cover image yet, drawn per `type`.
@@ -11,17 +12,19 @@ export function ProjectArt({ type }: { type: string }) {
   return <Note />;
 }
 
-function Frame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Frame({ children, url, className = "" }: { children: React.ReactNode; url: string; className?: string }) {
   return (
-    <div className={`w-[78%] max-w-[360px] rounded-md border border-secondary-300 bg-light-50 shadow-[0_18px_40px_-20px_rgb(107_28_2/0.4)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-0.6deg] ${className}`}>
-      {children}
+    <div className={`w-[78%] max-w-[360px] transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-0.6deg] ${className}`}>
+      <BrowserWindow size="compact" url={url}>
+        {children}
+      </BrowserWindow>
     </div>
   );
 }
 
 function Note() {
   return (
-    <Frame>
+    <Frame url="aimdoc.aimebase.com">
       <div className="flex items-center gap-1.5 border-b border-light-600 px-3 py-2">
         <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
         <span className="text-[10px] font-medium">Shift note</span>
@@ -48,7 +51,7 @@ function Note() {
 
 function Ballot() {
   return (
-    <Frame>
+    <Frame url="rcamaine.aimebase.com">
       <div className="flex items-center justify-between border-b border-light-600 px-3 py-2">
         <span className="text-[10px] font-medium">Amatora 2026</span>
         <span className="flex overflow-hidden rounded-xs border border-light-600 font-mono text-[8px]">
@@ -75,13 +78,7 @@ function Ballot() {
 
 function Website() {
   return (
-    <Frame>
-      <div className="flex items-center gap-1 border-b border-light-600 px-3 py-2">
-        <span className="h-1.5 w-1.5 rounded-full bg-light-700" />
-        <span className="h-1.5 w-1.5 rounded-full bg-light-700" />
-        <span className="h-1.5 w-1.5 rounded-full bg-light-700" />
-        <span className="ml-2 h-2.5 flex-1 rounded-xs bg-light-500 ring-1 ring-light-600" />
-      </div>
+    <Frame url="rcam-fe.vercel.app">
       <div className="grid grid-cols-[1.3fr_1fr] gap-2 p-3">
         <div className="space-y-1.5">
           <div className="h-1.5 w-4/5 rounded-full bg-dark-400" />

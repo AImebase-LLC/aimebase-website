@@ -23,9 +23,17 @@ metrics:
 tags: ["AI", "Healthcare", "Documentation"]
 stack: []
 languages: ["English"]
-cover: "/projects/aimdoc/cover.jpg"
-cover_alt: "AImdoc turning guided shift answers into a finished care note"
-gallery: []
+cover: "/projects/aimdoc/dashboard.jpg"
+cover_alt: "The AImdoc dashboard: group homes, today's shifts, week hours, and pending documentation at a glance"
+gallery:
+  - src: "/projects/aimdoc/dashboard.jpg"
+    alt: "AImdoc dashboard with group homes, shifts, hours, and pending docs"
+  - src: "/projects/aimdoc/documentation.jpg"
+    alt: "Starting a shift note: choose the home, client, shift, and date, with questions in English or French"
+  - src: "/projects/aimdoc/shift-facts.jpg"
+    alt: "Guided shift facts: shift hours, personal care, medications and reportable events"
+  - src: "/projects/aimdoc/shift-facts-end.jpg"
+    alt: "End-of-shift status and details before continuing to goal-based tasks"
 testimonial:
   quote: ""
   name: ""

@@ -1,5 +1,6 @@
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { Icon } from "@/components/Icon";
+import { BrowserWindow } from "@/components/ui/browser-window";
 import { Tick02Icon } from "@hugeicons/core-free-icons";
 
 const quick = ["Morning routine", "Meals", "Activities", "Community goal", "Anything else?"];
@@ -51,7 +52,8 @@ export function BeforeAfter({ index, total, surface }: { index: number; total: n
             <p className="mono-label text-accent-700">After</p>
             <span className="rounded-xs bg-status-live-bg px-1.5 py-0.5 mono-label !text-[10px] text-status-live">Ready for review</span>
           </div>
-          <div data-reveal style={{ "--d": 2 } as React.CSSProperties} className="mt-6 flex flex-1 flex-col rounded-lg border border-secondary-300 bg-secondary-50 p-5" aria-hidden>
+          <div data-reveal style={{ "--d": 2 } as React.CSSProperties} className="mt-6 flex flex-1 flex-col" aria-hidden>
+            <BrowserWindow url="aimdoc.aimebase.com/documentation" className="flex-1" contentClassName="flex flex-col bg-secondary-50 p-5">
             <p className="text-[12px] font-medium text-dark-400">5 quick answers</p>
             <ul className="mt-3 flex flex-wrap gap-1.5">
               {quick.map((q, i) => (
@@ -80,6 +82,7 @@ export function BeforeAfter({ index, total, surface }: { index: number; total: n
                 <span className="rounded-xs bg-dark-500 px-2 py-1 text-[11px] font-medium text-light-50">Review &amp; sign</span>
               </div>
             </div>
+            </BrowserWindow>
           </div>
           <p className="mt-5 text-[15px] leading-relaxed text-light-900">
             5 quick answers and a finished note, ready for review.

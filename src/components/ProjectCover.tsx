@@ -12,7 +12,7 @@ export function ProjectCover({ project, priority = false, className = "", large 
           alt={project.cover_alt}
           fill
           sizes="(min-width: 768px) 400px, 100vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          className="object-cover object-left-top transition-transform duration-500 group-hover:scale-[1.02]"
           priority={priority}
         />
       </div>

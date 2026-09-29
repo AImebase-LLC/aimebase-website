@@ -58,7 +58,7 @@ export function ArrowLink({
     <Link
       href={href}
       data-event={event}
-      className={`inline-flex items-center gap-2.5 text-[15px] font-medium transition-colors ${color} ${className}`}
+      className={`inline-flex items-center gap-2.5 whitespace-nowrap text-[15px] font-medium transition-colors ${color} ${className}`}
     >
       <span className="link-sweep">{children}</span>
       <ArrowChip tone={tone === "dark" ? "dark" : "light"} />

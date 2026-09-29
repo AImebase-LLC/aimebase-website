@@ -1,11 +1,19 @@
+import { BrowserWindow } from "@/components/ui/browser-window";
 import { Icon } from "./Icon";
 import { Tick02Icon } from "@hugeicons/core-free-icons";
 /** Product screens for the three AImdoc steps: ask, draft, review. Decorative. */
 export function StepScreen({ i, compact = false }: { i: number; compact?: boolean }) {
-  const shell = `w-full max-w-md rounded-lg border border-secondary-300 bg-light-50 shadow-[0_20px_50px_-28px_rgb(107_28_2/0.45)] ${compact ? "p-3.5" : "p-4"}`;
+  const pad = compact ? "p-3.5" : "p-4";
+  const Shell = ({ children }: { children: React.ReactNode }) => (
+    <BrowserWindow size="compact" url={`aimdoc.aimebase.com/documentation${i === 2 ? "/review" : ""}`} className="w-full max-w-md">
+      <div className={pad} aria-hidden>
+        {children}
+      </div>
+    </BrowserWindow>
+  );
   if (i === 0)
     return (
-      <div className={shell} aria-hidden>
+      <Shell>
         <p className="mono-label !text-[10px] text-light-900">Question 3 of 5 · Goal 2 · Community</p>
         <p className="display mt-3 text-xl">Any progress on his community goal?</p>
         <div className="mt-4 rounded-sm bg-secondary-50 px-3 py-2.5 text-[14px] ring-1 ring-accent-300">
@@ -16,11 +24,11 @@ export function StepScreen({ i, compact = false }: { i: number; compact?: boolea
             <span key={k} className={`h-1 flex-1 rounded-full ${d ? "bg-accent-500" : "bg-light-600"}`} />
           ))}
         </div>
-      </div>
+      </Shell>
     );
   if (i === 1)
     return (
-      <div className={shell} aria-hidden>
+      <Shell>
         <div className="flex items-center justify-between">
           <p className="mono-label !text-[10px] text-light-900">Draft note</p>
           <span className="mono-label !text-[10px] text-status-live">Ready for review</span>
@@ -29,10 +37,10 @@ export function StepScreen({ i, compact = false }: { i: number; compact?: boolea
           <p><span className="font-medium text-dark-500">Goal 1 · Daily living.</span> He completed his morning routine independently and took his medication after one verbal reminder.</p>
           <p><span className="font-medium text-dark-500">Goal 2 · Community.</span> He walked to the public library with staff support and greeted library staff on his own.</p>
         </div>
-      </div>
+      </Shell>
     );
   return (
-    <div className={shell} aria-hidden>
+    <Shell>
       <p className="mono-label !text-[10px] text-light-900">Review</p>
       <p className="mt-3 text-[13px] leading-relaxed text-dark-400">
         He walked to the public library with staff support and greeted library staff on his own.{" "}
@@ -45,6 +53,6 @@ export function StepScreen({ i, compact = false }: { i: number; compact?: boolea
         </span>
         <span className="rounded-xs bg-dark-500 px-2.5 py-1 text-[12px] text-light-50">Sign off</span>
       </div>
-    </div>
+    </Shell>
   );
 }
