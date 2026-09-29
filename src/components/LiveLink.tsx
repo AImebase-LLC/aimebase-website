@@ -39,7 +39,7 @@ export function LiveLink({
   return (
     <a
       {...common}
-      className={`inline-flex items-center gap-2.5 text-[15px] font-medium transition-colors ${
+      className={`inline-flex items-center gap-2.5 whitespace-nowrap text-[15px] font-medium transition-colors ${
         tone === "dark" ? "text-accent-300" : "text-dark-500"
       } ${className}`}
     >

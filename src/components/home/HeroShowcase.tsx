@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ProjectArt } from "@/components/ProjectArt";
 import { ArrowChip } from "@/components/Icon";
+import { BrowserWindow } from "@/components/ui/browser-window";
 
 export type ShowcaseItem = {
   slug: string;
@@ -14,6 +16,8 @@ export type ShowcaseItem = {
   category: string;
   outcome: string;
   link: string;
+  cover: string;
+  coverAlt: string;
 };
 
 const statusStyle: Record<string, { label: string; cls: string }> = {
@@ -56,7 +60,7 @@ export function HeroShowcase({ items }: { items: ShowcaseItem[] }) {
 
   return (
     <div
-      className="relative w-full max-w-[560px]"
+      className="relative w-full max-w-[640px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -97,11 +101,19 @@ export function HeroShowcase({ items }: { items: ShowcaseItem[] }) {
 
         {/* Panel */}
         <div id="showcase-panel" role="tabpanel" aria-live="polite" className="relative">
-          <div key={item.slug} className={`relative flex h-[250px] items-center justify-center overflow-hidden sm:h-[290px] ${t.stage}`}>
+          <div key={item.slug} className={`relative flex h-[230px] items-center justify-center overflow-hidden min-[420px]:h-[270px] sm:h-[360px] lg:h-[330px] xl:h-[380px] ${t.stage}`}>
             <div aria-hidden className="dot-field pointer-events-none absolute inset-0 opacity-50 [mask-image:radial-gradient(70%_70%_at_50%_50%,#000,transparent)]" />
-            <div aria-hidden className="animate-rise relative flex w-full scale-[1.12] justify-center drop-shadow-[0_24px_40px_rgb(0_0_0/0.45)] sm:scale-[1.28]">
-              <ProjectArt type={item.type} />
-            </div>
+            {item.cover ? (
+              <div className="animate-rise relative flex h-full w-full items-start justify-center overflow-hidden px-2 pt-2 sm:px-3 sm:pt-3">
+                <BrowserWindow size="compact" theme="dark" url={item.link || undefined} className="w-full">
+                  <Image src={item.cover} alt={item.coverAlt} width={1485} height={812} sizes="(min-width: 1024px) 460px, 90vw" className="block h-auto w-full" />
+                </BrowserWindow>
+              </div>
+            ) : (
+              <div aria-hidden className="animate-rise relative flex w-full scale-[1.12] justify-center drop-shadow-[0_24px_40px_rgb(0_0_0/0.45)] sm:scale-[1.28]">
+                <ProjectArt type={item.type} />
+              </div>
+            )}
           </div>
           <div key={`${item.slug}-meta`} className={`animate-rise relative flex flex-col gap-3 border-t p-5 sm:flex-row sm:items-end sm:justify-between ${t.line}`}>
             <div className="min-w-0">

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Tick02Icon } from "@hugeicons/core-free-icons";
 import { Icon } from "@/components/Icon";
+import { BrowserWindow } from "@/components/ui/browser-window";
 
 const qa = [
   { q: "How did the morning routine go?", a: "Dressed on his own. One reminder for meds." },
@@ -82,7 +83,7 @@ export function ProductPreview() {
 
   return (
     <figure ref={ref} className="w-full max-w-[580px]" aria-label="AImdoc demo: guided answers become a finished care note">
-      <div className="overflow-hidden rounded-lg border border-secondary-300 bg-light-50 shadow-[0_30px_70px_-30px_rgb(107_28_2/0.45)]">
+      <BrowserWindow url="aimdoc.aimebase.com/documentation">
         {/* Title bar */}
         <div className="flex items-center justify-between border-b border-light-600 px-4 py-2.5">
           <div className="flex items-center gap-2">
@@ -189,7 +190,7 @@ export function ProductPreview() {
             </div>
           </div>
         </div>
-      </div>
+      </BrowserWindow>
       <figcaption className="mt-3 text-center font-mono text-[10px] text-secondary-900">
         Five answers in. A complete note out. The caregiver signs.
       </figcaption>

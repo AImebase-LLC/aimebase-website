@@ -5,8 +5,6 @@ next-env.d.ts
 *.tsbuildinfo
 .DS_Store
 .env*.local
-.env
-.env.*
 !.env.example
 .vercel
 *.pem
@@ -14,3 +12,4 @@ test-results
 playwright-report
 # Original full-size artwork (9–15 MB PNGs); the site serves the optimized .jpg copies
 public/images/*.png
+config.bat

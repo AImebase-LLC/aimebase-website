@@ -9,6 +9,7 @@ import { steps } from "@/components/home/HowItWorks";
 import { ProductPreview } from "@/components/home/ProductPreview";
 import { JsonLd } from "@/components/JsonLd";
 import { LiveLink } from "@/components/LiveLink";
+import { ProductScreens } from "@/components/ProductScreens";
 import { Heading, Section, SectionLabel } from "@/components/Section";
 import { StepScreen } from "@/components/StepScreen";
 import { getProject } from "@/lib/projects";
@@ -68,7 +69,7 @@ export default function AimdocPage() {
                 AImdoc turns short guided answers into professional, compliant notes, so DSPs spend less time writing and more
                 time with the people they support.
               </p>
-              <div className="animate-rise mt-9 flex flex-col items-start gap-5 [animation-delay:200ms] sm:flex-row sm:items-center sm:gap-7">
+              <div className="animate-rise mt-9 flex flex-col items-start gap-5 [animation-delay:200ms] sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-7">
                 <Button href={cta.demo.href} event={cta.demo.event} size="lg">{cta.demo.label}</Button>
                 <ArrowLink href="#how">See how it works</ArrowLink>
                 {project?.link && <LiveLink href={project.link} label="Open AImdoc" />}
@@ -130,6 +131,32 @@ export default function AimdocPage() {
             </div>
           </div>
         ))}
+      </Section>
+
+      {/* Real product screens */}
+      <Section aria-labelledby="inside-title" className="theme-s50">
+        <SectionLabel>Inside AImdoc</SectionLabel>
+        <div className="grid border-t border-light-600 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)]">
+          <div className="px-6 py-12 md:px-10 lg:border-r lg:border-light-600 lg:py-14">
+            <Heading id="inside-title" className="text-3xl md:text-4xl">The real product, not a mockup.</Heading>
+            <p className="mt-4 max-w-[36ch] text-[15px] leading-relaxed text-light-900">
+              These screens are from AImdoc as it runs today: the dashboard a caregiver sees, and the guided shift questions
+              that come before the note is drafted.
+            </p>
+            {project?.link && <LiveLink href={project.link} label="Open AImdoc" className="mt-6" />}
+          </div>
+          <div className="p-3 md:p-6 lg:p-8">
+            <ProductScreens
+              url="aimdoc.aimebase.com"
+              screens={[
+                { src: "/projects/aimdoc/dashboard.jpg", path: "/dashboard", label: "Dashboard", alt: "AImdoc dashboard with group homes, shifts, week hours, and pending documentation", caption: "Homes, today's shifts, week hours, and pending notes at a glance." },
+                { src: "/projects/aimdoc/documentation.jpg", path: "/documentation", label: "Start a note", alt: "Starting a shift note in AImdoc by choosing home, client, shift, and date", caption: "Pick the home, the person supported, the shift, and the date. Questions can be asked in English or French." },
+                { src: "/projects/aimdoc/shift-facts.jpg", path: "/documentation", label: "Guided questions", alt: "AImdoc guided shift facts: hours, personal care, medications and reportable events", caption: "Short, structured questions: shift hours, personal care, PRN medications, and reportable events." },
+                { src: "/projects/aimdoc/shift-facts-end.jpg", path: "/documentation", label: "Continue to tasks", alt: "AImdoc end-of-shift status and details, then continue to goal-based tasks", caption: "End-of-shift status, then on to the tasks tied to the person's goals before the summary is generated." },
+              ]}
+            />
+          </div>
+        </div>
       </Section>
 
       <BeforeAfter index={4} total={TOTAL} surface="theme-s50 pattern-diagonal" />

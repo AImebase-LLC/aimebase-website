@@ -15,12 +15,14 @@ export function Hero() {
     category: p.category,
     outcome: p.outcome_headline,
     link: p.link,
+    cover: p.coverExists ? p.cover : "",
+    coverAlt: p.cover_alt,
   }));
   const inUse = getFeaturedProjects().filter((p) => p.status === "live" || p.status === "pilot").length;
 
   return (
     <section aria-labelledby="hero-title" className="rule">
-      <div className="frame grid lg:min-h-[740px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+      <div className="frame grid lg:min-h-[740px] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
         <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-dark-500 px-5 pt-8 pb-10 sm:gap-14 sm:px-6 sm:pt-12 sm:pb-12 md:px-10 lg:pt-14">
           <div aria-hidden className="dot-field pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_50%_at_0%_0%,#000,transparent)]" />
           <div className="animate-rise relative flex max-w-md items-center gap-3 rounded-md border border-dark-400 bg-dark-400/40 p-3">
@@ -35,12 +37,12 @@ export function Hero() {
 
           <div className="animate-rise relative [animation-delay:120ms]">
             <p className="mono-label text-accent-300">AI product studio · South Portland, Maine</p>
-            <h1 id="hero-title" className="display mt-5 max-w-[14ch] text-[36px] text-light-50 min-[360px]:text-[42px] sm:text-[56px] xl:text-[64px]">
-              AI that makes people superfast at the work they already do.
+            <h1 id="hero-title" className="display mt-5 max-w-[20ch] text-[36px] text-light-50 min-[360px]:text-[40px] sm:text-[52px] lg:text-[46px] xl:text-[54px]">
+              We build AI products and custom AI software.
             </h1>
             <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-dark-100">
-              We find one big problem where AI can save people time, solve it well, and ship it as real software. It started
-              with care documentation. It won&rsquo;t end there.
+              Real tools, shipped fast, for any field. AImdoc turns a few quick answers into a finished care note. A bilingual
+              election platform went live in days. We find the work that slows people down, then build the AI that fixes it.
             </p>
             <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
               <Button href={cta.project.href} event={cta.project.event} size="lg">
@@ -53,7 +55,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative isolate flex items-center justify-center overflow-hidden bg-dark-500 px-4 py-12 md:px-10">
+        <div className="relative isolate flex items-center justify-center overflow-hidden bg-dark-500 px-3 py-10 sm:px-6 md:py-12 lg:px-5 xl:px-6">
           {/* Misty Maine pines at night, one lit cabin: the light at the end of the shift. */}
           <Image
             src="/images/image1.jpg"

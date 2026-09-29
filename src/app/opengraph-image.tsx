@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "AImbase: AI that makes people superfast at the work they already do.";
+export const alt = "AIMEBASE: We build AI products and custom AI software.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default function OpengraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ fontSize: 68, lineHeight: 1.05, letterSpacing: -2, maxWidth: 900 }}>
-            AI that makes people superfast at the work they already do.
+            We build AI products and custom AI software.
           </div>
           <div style={{ display: "flex", fontSize: 26, color: "#FF8158" }}>Faster work. Lighter days. · South Portland, Maine</div>
         </div>
